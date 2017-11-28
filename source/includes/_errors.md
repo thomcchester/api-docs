@@ -1,20 +1,125 @@
 # Errors
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+> If you are authenticated but attempt to access a resource for which you do not have sufficient permissions, you will receive a `403 Forbidden` response.
 
-The Kittn API uses the following error codes:
+```json
+{
+  "errors": [{
+    "code": "authorization_error",
+    "message": "You are not authorized to access this resource"
+  }]
+}
+```
 
+> If the resource is not found, you will receive a `404 Not Found` response.
 
-Error Code | Meaning
----------- | -------
-400 | Bad Request -- Your request sucks.
-401 | Unauthorized -- Your API key is wrong.
-403 | Forbidden -- The kitten requested is hidden for administrators only.
-404 | Not Found -- The specified kitten could not be found.
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method.
-406 | Not Acceptable -- You requested a format that isn't json.
-410 | Gone -- The kitten requested has been removed from our servers.
-418 | I'm a teapot.
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+```json
+{
+  "errors": [{
+    "code": "not_found_error",
+    "message": "The resource you requested was not found"
+  }]
+}
+```
+
+Drip responds to invalid requests in a number of different ways. Exceptions to these rules will be noted for any applicable endpoints. Assume authentication is required on all endpoints unless otherwise noted.
+
+If you attempt to anonymously access a resource that requires authentication, you will receive a `401 Unauthorized` response.
+
+## Validation Errors
+
+> An example response:
+
+```json
+{
+  "errors": [
+    {
+      "code": "presence_error",
+      "attribute": "email",
+      "message": "Email is required"
+    },
+    {
+      "code": "length_error",
+      "attribute": "name",
+      "message": "Name must be between 2 and 20 characters"
+    }
+  ]
+}
+```
+
+If validation errors occur while attempting to create or update a resource, you will receive a `422 Unprocessable Entity` response with an errors object detailing which attributes are invalid. One of the following codes will assigned to each error object:
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>presence_error</code></td>
+      <td>The attribute is required.</td>
+    </tr>
+    <tr>
+      <td><code>length_error</code></td>
+      <td>The length of the attribute is out of bounds.</td>
+    </tr>
+    <tr>
+      <td><code>uniqueness_error</code></td>
+      <td>The attribute must be unique.</td>
+    </tr>
+    <tr>
+      <td><code>email_error</code></td>
+      <td>The attribute must be a valid email address.</td>
+    </tr>
+    <tr>
+      <td><code>url_error</code></td>
+      <td>The attribute must be a valid URL.</td>
+    </tr>
+    <tr>
+      <td><code>domain_error</code></td>
+      <td>The attribute must be a valid domain name.</td>
+    </tr>
+    <tr>
+      <td><code>time_error</code></td>
+      <td>The attribute must be a valid time in ISO-8601 format.</td>
+    </tr>
+    <tr>
+      <td><code>email_address_list_error</code></td>
+      <td>The attribute must be a valid comma-separated list of email addresses.</td>
+    </tr>
+    <tr>
+      <td><code>days_of_the_week_error</code></td>
+      <td>The attribute must be a valid days of the week mask of the format <br><code>/\A(0|1){7}\z/</code> (excluding <code>0000000</code>).</td>
+    </tr>
+    <tr>
+      <td><code>unavailable_error</code></td>
+      <td>A resource has been disabled or deleted.</td>
+    </tr>
+    <tr>
+      <td><code>format_error</code></td>
+      <td>A resource identifier or object is not formatted correctly.</td>
+    </tr>
+    <tr>
+      <td><code>range_error</code></td>
+      <td>A numeric value is out of range.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Transition Errors
+
+> An example response:
+
+```json
+{
+  "errors": [
+    {
+      "code": "no_postal_address_error"
+    }
+  ]
+}
+```
+
+State transition endpoints will respond with a `403 Forbidden` and an errors object if the transition is not allowed.
