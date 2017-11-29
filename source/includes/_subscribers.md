@@ -217,7 +217,7 @@ curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers" \
 
 ## Fetch a subscriber
 
-> To create or update a subscriber:
+> To fetch a subscriber:
 
 ```shell
 curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL" \
