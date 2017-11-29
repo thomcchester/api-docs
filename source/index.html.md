@@ -27,6 +27,7 @@ includes:
   - tags
   - users
   - webhooks
+  - workflow_triggers
   - batch_api
 
 search: true
