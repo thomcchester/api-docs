@@ -12,6 +12,8 @@ toc_footers:
 includes:
   - authentication
   - errors
+  - subscribers
+  - batch_api
 
 search: true
 ---
