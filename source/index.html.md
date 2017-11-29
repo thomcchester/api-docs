@@ -16,6 +16,7 @@ includes:
   - errors
   - accounts
   - broadcasts
+  - campaign_subscriptions
   - subscribers
   - batch_api
 
