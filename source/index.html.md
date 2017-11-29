@@ -25,6 +25,7 @@ includes:
   - purchases
   - subscribers
   - tags
+  - users
   - batch_api
 
 search: true
