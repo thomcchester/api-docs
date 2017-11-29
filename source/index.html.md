@@ -26,6 +26,7 @@ includes:
   - subscribers
   - tags
   - users
+  - webhooks
   - batch_api
 
 search: true
