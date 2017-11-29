@@ -17,7 +17,6 @@ includes:
   - accounts
   - broadcasts
   - campaigns
-  - campaign_subscriptions
   - custom_fields
   - conversions
   - events
@@ -27,7 +26,7 @@ includes:
   - tags
   - users
   - webhooks
-  - workflow_triggers
+  - workflows
   - batch_api
 
 search: true
