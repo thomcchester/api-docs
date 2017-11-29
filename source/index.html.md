@@ -14,6 +14,7 @@ includes:
   - rate_limiting
   - pagination
   - errors
+  - accounts
   - subscribers
   - batch_api
 
