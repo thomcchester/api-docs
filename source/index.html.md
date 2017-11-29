@@ -22,6 +22,7 @@ includes:
   - conversions
   - events
   - forms
+  - purchases
   - subscribers
   - batch_api
 
