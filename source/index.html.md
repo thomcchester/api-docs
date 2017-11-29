@@ -21,6 +21,7 @@ includes:
   - custom_fields
   - conversions
   - events
+  - forms
   - subscribers
   - batch_api
 
