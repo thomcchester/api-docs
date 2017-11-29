@@ -20,6 +20,7 @@ includes:
   - campaign_subscriptions
   - custom_fields
   - conversions
+  - events
   - subscribers
   - batch_api
 
