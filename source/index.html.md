@@ -18,6 +18,7 @@ includes:
   - broadcasts
   - campaigns
   - campaign_subscriptions
+  - conversions
   - subscribers
   - batch_api
 
