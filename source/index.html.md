@@ -24,6 +24,7 @@ includes:
   - forms
   - purchases
   - subscribers
+  - tags
   - batch_api
 
 search: true
