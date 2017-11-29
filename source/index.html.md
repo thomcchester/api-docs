@@ -15,6 +15,7 @@ includes:
   - pagination
   - errors
   - accounts
+  - broadcasts
   - subscribers
   - batch_api
 

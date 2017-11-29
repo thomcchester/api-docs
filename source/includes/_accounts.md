@@ -43,7 +43,7 @@ curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/accounts" \
 > The response looks like this:
 
 ```json
-# The accounts property is an array account objects.
+# The accounts property is an array of account objects.
 {
   "links": { ... },
   "accounts": [ ... ]
