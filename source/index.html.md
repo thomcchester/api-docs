@@ -11,6 +11,8 @@ toc_footers:
 
 includes:
   - authentication
+  - rate_limiting
+  - pagination
   - errors
   - subscribers
   - batch_api
