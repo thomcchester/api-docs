@@ -25,9 +25,10 @@ includes:
   - subscribers
   - tags
   - users
-  - webhooks
   - workflows
   - batch_api
+  - webhooks
+  - webhook_events
 
 search: true
 ---
