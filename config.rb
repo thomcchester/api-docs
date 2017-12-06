@@ -48,6 +48,11 @@ configure :build do
   # activate :gzip
 end
 
+activate :deploy do |config|
+  config.deploy_method = :git
+  config.build_before = true
+end
+
 # Deploy Configuration
 # If you want Middleman to listen on a different port, you can set that below
 set :port, 4567
