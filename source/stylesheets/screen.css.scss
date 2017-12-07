@@ -616,3 +616,19 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+
+// Section headers
+
+#rest-section,
+#js-section {
+  display: none;
+}
+
+.rest-section, .js-section {
+  text-transform: uppercase;
+  margin: 10px 0 5px 0;
+  padding-left: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed $nav-footer-border-color;
+  font-weight: bold;
+}
