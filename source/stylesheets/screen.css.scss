@@ -187,7 +187,8 @@ html, body {
   }
 
   .toc-link {
-    transition: background-color .3s;
+    transition: border .3s;
+    border-left: 6px solid transparent;
 
 
     &:hover {
@@ -198,8 +199,7 @@ html, body {
 
   // This is the currently selected ToC entry
   .toc-link.active {
-    background-color: #F224F2;
-    color: #fff;
+    border-color: #F224F2;
   }
 
   // this is parent links of the currently selected ToC entry
