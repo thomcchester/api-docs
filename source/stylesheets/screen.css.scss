@@ -2,7 +2,6 @@
 @import 'normalize';
 @import 'variables';
 @import 'icon-font';
-@import 'fonts';
 // @import 'rtl'; // uncomment to switch to RTL format
 
 /*
@@ -55,13 +54,13 @@ html, body {
   overflow-x: hidden;
   position: fixed;
   z-index: 30;
-  top: 75px;
+  top: 0;
   left: 0;
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 18px;
-  border-right: 1px solid $nav-subitem-bg;
+  font-size: 13px;
+  font-weight: bold;
 
   // language selector for mobile devices
   .lang-selector {
@@ -76,12 +75,10 @@ html, body {
   &>img {
     display: block;
     max-width: 100%;
-    height: 60px;
   }
 
   &>.search {
     position: relative;
-    margin: 18px 0;
 
     input {
       background: $nav-bg;
@@ -107,41 +104,12 @@ html, body {
 
   .logo {
     margin-bottom: $logo-margin;
-    padding: 24px;
-    display: block;
-    text-align: center;
-    border-bottom: 1px solid #CCCCCC;
-
-    svg {
-      width: 65%;
-      overflow: visible;
-      will-change: auto;
-      transition: fill 300ms 300ms ease-in;
-
-      #drip {
-        transition: transform 300ms 600ms ease-in;
-        transform-origin: center;
-        will-change: transform;
-      }
-    }
-
-    &:hover {
-      svg{
-        fill: #f224f2;
-
-        #drip {
-          transform: rotate(-90deg) translate(-9px, -14px);
-          transition: transform 300ms 600ms;
-        }
-      }
-    }
   }
 
   .search-results {
     margin-top: 0;
     box-sizing: border-box;
     height: 0;
-    font-size: 14px;
     overflow-y: auto;
     overflow-x: hidden;
     transition-property: height, margin;
@@ -176,7 +144,7 @@ html, body {
     list-style: none;
     margin: 0;
     padding: 0;
-    line-height: 3em;
+    line-height: 28px;
   }
 
   li {
@@ -186,31 +154,16 @@ html, body {
     transition-duration: 200ms;
   }
 
-  .toc-link {
-    transition: background-color .3s;
-
-
-    &:hover {
-      color:#4d4d4d;
-      border-color: #f891f8;
-    }
-  }
-
   // This is the currently selected ToC entry
   .toc-link.active {
-    background-color: #F224F2;
-    color: #fff;
+    background-color: $nav-active-bg;
+    color: $nav-active-text;
   }
 
   // this is parent links of the currently selected ToC entry
   .toc-link.active-parent {
-    background-color: $nav-active-bg;
+    background-color: $nav-active-parent-bg;
     color: $nav-active-parent-text;
-  }
-
-  .toc-list-h1 {
-    > li {
-    }
   }
 
   .toc-list-h2 {
@@ -220,8 +173,8 @@ html, body {
   }
 
   .toc-h2 {
-    padding-left: 30px;
-    font-size: 16px;
+    padding-left: $nav-padding + $nav-indent;
+    font-size: 12px;
   }
 
   .toc-footer {
@@ -253,7 +206,7 @@ html, body {
   white-space: nowrap;
   text-overflow: ellipsis;
   text-decoration: none;
-  color: $nav-text;
+  color: #fff;
   transition-property: background;
   transition-timing-function: linear;
   transition-duration: 130ms;
@@ -264,9 +217,8 @@ html, body {
   span {
     display: block;
     $side-pad: $main-padding / 2 - 8px;
-    padding: 3px 6px;
+    padding: $side-pad $side-pad $side-pad;
     background-color: rgba($main-bg, 0.7);
-    transition: 300ms background-color;
     transform-origin: 0 0;
     transform: rotate(-90deg) translate(-100%, 0);
     border-radius: 0 0 0 5px;
@@ -274,7 +226,7 @@ html, body {
   padding: 0 1.5em 5em 0; // increase touch size area
   display: none;
   position: fixed;
-  top: 74px;
+  top: 0;
   left: 0;
   z-index: 100;
   color: #000;
@@ -285,17 +237,11 @@ html, body {
   img {
     height: 16px;
     vertical-align: bottom;
-    width: auto;
   }
 
   transition: left 0.3s ease-in-out;
 
-  &:hover {
-    opacity: 1;
-    span{
-      background-color: #F891F8;
-    }
-   }
+  &:hover { opacity: 1; }
   &.open {left: $nav-width}
 }
 
@@ -306,7 +252,6 @@ html, body {
 
 .page-wrapper {
   margin-left: $nav-width;
-  top: 74px;
   position: relative;
   z-index: 10;
   background-color: $main-bg;
@@ -331,36 +276,32 @@ html, body {
   .lang-selector {
     position: fixed;
     z-index: 50;
+    border-bottom: 5px solid $lang-select-active-bg;
   }
 }
 
 .lang-selector {
-  background-color: #262626;
+  background-color: $lang-select-bg;
   width: 100%;
   font-weight: bold;
-  box-shadow: 0 18px 12px -12px rgba(0, 0, 0, 0.5);
-
   a {
     display: block;
     float:left;
     color: $lang-select-text;
     text-decoration: none;
-    padding: 36px;
-    line-height: 0;
+    padding: 0 10px;
+    line-height: 30px;
     outline: 0;
-    border-bottom:4px solid transparent;
-    transition: .3s ease;
 
-    &:focus, &:hover {
+    &:active, &:focus {
+      background-color: $lang-select-pressed-bg;
       color: $lang-select-pressed-text;
-      border-bottom: 4px solid #bfbfbf;
     }
 
     &.active {
+      background-color: $lang-select-active-bg;
       color: $lang-select-active-text;
-      border-bottom: 4px solid #f224f2;
     }
-
   }
 
   &:after {
@@ -408,23 +349,19 @@ html, body {
 
   h1 {
     @extend %header-font;
-    padding-top: 3em;
+    font-size: 25px;
+    padding-top: 0.5em;
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
-    margin-top: 4em;
-    background-color: transparent;
-    //box-shadow: inset 0 8px 12px -6px rgba(0,0,0,.5);
-    width: 100%;
-  }
-
-  > h1:first-of-type {
-    padding-top: 1em;
+    margin-top: 2em;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #fdfdfd;
   }
 
   h1:first-child, div:first-child + h1 {
     border-top-width: 0;
     margin-top: 0;
-    box-shadow: none;
   }
 
   h2 {
@@ -433,7 +370,7 @@ html, body {
     margin-top: 4em;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
-    padding-top: 4.5em;
+    padding-top: 1.2em;
     padding-bottom: 1.2em;
     background-image: linear-gradient(to bottom, rgba(#fff, 0.2), rgba(#fff, 0));
   }
@@ -489,11 +426,11 @@ html, body {
     }
 
     tr:nth-child(odd)>td {
-      background-color: darken($main-bg,4.2%);
+      background-color: lighten($main-bg,4.2%);
     }
 
     tr:nth-child(even)>td {
-      background-color: darken($main-bg,2.4%);
+      background-color: lighten($main-bg,2.4%);
     }
   }
 
@@ -515,7 +452,7 @@ html, body {
   }
 
   code {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,0.05);
     padding: 3px;
     border-radius: 3px;
     @extend %break-words;
@@ -532,31 +469,15 @@ html, body {
     padding-bottom: 1em;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
-    margin-left: 1.5em;
-    width: calc(60% - 3em);
-    border-radius: 3px;
-    color: #fff;
-    background: #4d4d4d;
+    background: $aside-notice-bg;
     line-height: 1.6;
 
-    code {
-      background: rgba(255,255,255,.1);
-    }
-
     &.warning {
-      background-color: #F22446;
-      color: #ffffff;
-      code {
-        background: rgba(0,0,0,.3);
-      }
+      background-color: $aside-warning-bg;
     }
 
     &.success {
-      background-color: #96F224;
-      color: #262626;
-      code {
-        background: rgba(0,0,0,.1);
-      }
+      background-color: $aside-success-bg;
     }
   }
 
@@ -596,10 +517,9 @@ html, body {
   pre, blockquote {
     background-color: $code-bg;
     color: #fff;
-    padding-left: 24px;
 
-    margin: 0 30px;
-    width: calc(40% - 60px);
+    margin: 0;
+    width: $examples-width;
 
     float:right;
     clear:right;
@@ -622,29 +542,15 @@ html, body {
     padding-top: 2em;
     padding-bottom: 2em;
     padding: 2em $main-padding;
-    border-radius: 3px;
   }
 
   blockquote {
-    background-color: transparent;
-    margin-left: 0;
-    margin-top: 24px;
-    padding-left: 0;
-
     &>p {
-      background-color: transparent;
-      padding: $code-annotation-padding 0;
+      background-color: $code-annotation-bg;
+      padding: $code-annotation-padding 2em;
       color: #eee;
-      font-weight: bold;
     }
   }
-}
-
-
-// Hello section
-
-.hello {
-  width: 60%;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -687,11 +593,6 @@ html, body {
 
   .toc-wrapper .lang-selector {
     display: block;
-    box-shadow: none;
-
-    a {
-      padding: 24px 18px;
-    }
   }
 
   .page-wrapper .lang-selector {
@@ -706,32 +607,10 @@ html, body {
   %right-col + %left-col {
     margin-top: $main-padding;
   }
-
-  .hello {
-    width: 100%;
-  }
-
-  .content pre, .content blockquote {
-    margin: 0 24px;
-    border-radius: 0;
-  }
-
-  .content pre {
-    margin-bottom: 24px;
-  }
-
-  .content blockquote {
-    background: #000;
-    padding-left: 24px;
-  }
 }
 
 .highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {
   color: #909090;
-}
-
-.highlight .err {
-  color: #F22446;
 }
 
 .highlight, .highlight .w {
