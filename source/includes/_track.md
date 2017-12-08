@@ -1,3 +1,0 @@
-# Track
-
-## Some track content

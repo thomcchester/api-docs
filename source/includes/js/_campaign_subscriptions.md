@@ -1,0 +1,42 @@
+# Susbcribe to a Campaign
+
+> Example request
+
+```javascript
+_dcq.push(["subscribe", { campaign_id: "9999999", fields: { email: "john@acme.com" }}]);
+```
+
+This method will add a subscriber directly to campaign. If you would like to add a subscriber to your account without subscribing them to a campaign, use an <a href="#identifying-visitors">identify call</a> instead.
+
+### Arguments
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>campaign_id</code></td>
+      <td>Required. The String campaign ID, which can be found on the campaign settings page.</td>
+    </tr>
+    <tr>
+      <td><code>fields</code></td>
+      <td>Required. An Object containing the user's data. At minimum, this object must contain an <code>email</code> attribute. If there are any required custom fields, these attributes must also be present.</td>
+    </tr>
+    <tr>
+      <td><code>double_optin</code></td>
+      <td>Optional. If <code>true</code>, the double opt-in confirmation email is sent; if <code>false</code>, the confirmation email is skipped. Defaults to the value set on the campaign.</td>
+    </tr>
+    <tr>
+      <td><code>success</code></td>
+      <td>Optional. A callback function that is executed upon successful completion of the request.</td>
+    </tr>
+    <tr>
+      <td><code>failure</code></td>
+      <td>Optional. A callback function that is executed if the request fails.</td>
+    </tr>
+  </tbody>
+</table>

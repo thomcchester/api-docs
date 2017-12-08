@@ -1,4 +1,4 @@
-# Identify
+# Identifying Visitors
 
 ## Attach Identifying Data to Visitors
 
