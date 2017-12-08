@@ -38,6 +38,8 @@ includes_js_api:
   - js/tagging
   - js/campaign_subscriptions
   - js/unsubscribe
+  - js/form_widget
+  - js/form_events
 
 search: true
 ---
