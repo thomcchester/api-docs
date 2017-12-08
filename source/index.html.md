@@ -4,35 +4,40 @@ title: API Reference
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
   - ruby
+  - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes_rest_api:
-  - authentication
-  - rate_limiting
-  - pagination
-  - errors
-  - accounts
-  - broadcasts
-  - campaigns
-  - custom_fields
-  - conversions
-  - events
-  - forms
-  - purchases
-  - subscribers
-  - tags
-  - users
-  - workflows
-  - batch_api
-  - webhooks
-  - webhook_events
+  - rest/authentication
+  - rest/rate_limiting
+  - rest/pagination
+  - rest/errors
+  - rest/accounts
+  - rest/broadcasts
+  - rest/campaigns
+  - rest/custom_fields
+  - rest/conversions
+  - rest/events
+  - rest/forms
+  - rest/purchases
+  - rest/subscribers
+  - rest/tags
+  - rest/users
+  - rest/workflows
+  - rest/batch_api
+  - rest/webhooks
+  - rest/webhook_events
 
 includes_js_api:
-  - identify
-  - track
+  - js/getting_started
+  - js/identify
+  - js/track
+  - js/tagging
+  - js/campaign_subscriptions
+  - js/forms
 
 search: true
 ---
