@@ -26,7 +26,7 @@ The Drip client library has a number of API methods for performing tasks right f
 
 To interact with the JavaScript API, you'll need to have your Drip snippet installed on your website. Each Drip account has a unique snippet that can be found under Settings → Account → Site Setup.
 
-## How to Send an API Request
+## How to Send a JS API Request
 
 ```javascript
 _dcq.push(["methodName", { key: "value", ... }]);
