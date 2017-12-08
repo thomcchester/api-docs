@@ -4,6 +4,7 @@ title: API Reference
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
   - ruby
+  - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -31,6 +32,7 @@ includes_rest_api:
   - webhook_events
 
 includes_js_api:
+  - getting_started
   - identify
   - track
 
