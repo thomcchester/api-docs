@@ -716,13 +716,6 @@ html, body {
   background-color: $code-bg;
 }
 
-// drip.com overrides
-
-.page-nav {
-  background: #fff !important;
-  z-index: 110 !important;
-}
-
 .page-banner {
   h1 {
     @extend %header-font;
@@ -734,10 +727,6 @@ html, body {
   }
 }
 
-.btn-login svg {
-  width: 16px;
-  transform: translateY(3px);
-}
 
 // Section headers
 
