@@ -78,7 +78,7 @@ html, body {
 
   &>.search {
     position: relative;
-    margin: 18px 0;
+    margin: 18px 24px;
 
     input {
       background: $nav-bg;
@@ -87,7 +87,7 @@ html, body {
       padding: 6px 0 6px 20px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
-      width: $nav-width - 30;
+      width: 100%;
       outline: none;
       color: $nav-text;
       border-radius: 0; /* ios has a default border radius */
@@ -96,7 +96,7 @@ html, body {
     &:before {
       position: absolute;
       top: 17px;
-      left: $nav-padding;
+      left: 0;
       color: $nav-text;
       @extend %icon-search;
     }
@@ -386,13 +386,12 @@ html, body {
 
   h1 {
     @extend %header-font;
-    padding-top: 3em;
+    padding-top: 1em;
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
-    margin-top: 4em;
+    margin-top: 2.5em;
     background-color: transparent;
-    //box-shadow: inset 0 8px 12px -6px rgba(0,0,0,.5);
-    width: 100%;
+    border-top: 1px solid #bfbfbf;
   }
 
   > h1:first-of-type {
@@ -408,10 +407,10 @@ html, body {
   h2 {
     @extend %header-font;
     font-size: 24px;
-    margin-top: 4em;
+    margin-top: 2em;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
-    padding-top: 4em;
+    padding-top: 1em;
     padding-bottom: 1.2em;
     background-image: linear-gradient(to bottom, rgba(#fff, 0.2), rgba(#fff, 0));
   }
@@ -668,7 +667,7 @@ html, body {
     box-shadow: none;
 
     a {
-      padding: 24px 18px;
+      padding: 24px 12px;
     }
   }
 
@@ -720,7 +719,7 @@ html, body {
   h1 {
     @extend %header-font;
     font-weight: normal;
-    font-size: 3em;
+    font-size: 30px;
     padding-top: 1.5em;
     width: auto;
     padding: .5em 28px 1.5em;
@@ -730,16 +729,18 @@ html, body {
 
 // Section headers
 
+// remove the TOC section headers from the content
 #rest-section,
 #js-section {
   display: none;
 }
 
-.rest-section, .js-section {
+.toc-section {
+  @extend %header-font;
   text-transform: uppercase;
-  margin: 10px 0 5px 0;
-  padding-left: 15px;
-  padding-bottom: 5px;
-  border-bottom: 1px dashed $nav-footer-border-color;
-  font-weight: bold;
+  margin: 10px 12px 5px 24px;
+  padding-left: 0;
+  padding-bottom: 0;
+  border-bottom: 2px solid #f224f2;
+  font-size: 16px;
 }

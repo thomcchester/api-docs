@@ -84,9 +84,9 @@ under the License.
         <% toc_data(page_content).each do |h1| %>
           <li>
             <% if h1[:id] == "rest-section" %>
-              <p class="rest-section">REST API</p>
+              <p class="toc-section">REST API</p>
             <% elsif h1[:id] == "js-section" %>
-              <p class="js-section">JS API</p>
+              <p class="toc-section">JS API</p>
             <% else %>
               <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:content] %>"><%= h1[:content] %></a>
               <% if h1[:children].length > 0 %>
