@@ -34,7 +34,6 @@ under the License.
     </style>
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
-    <link rel="stylesheet" href="https://rebrand-dot-drip-home.appspot.com/static/css/public/main.min.css?v=rebrand.405988602046629080">
     <% if current_page.data.search %>
       <%= javascript_include_tag  "all" %>
     <% else %>
@@ -49,58 +48,8 @@ under the License.
       </span>
     </a>
 
-    <header class="page-header">
-      <nav class="page-nav ">
-        <div class="container">
-          <div class="page-nav-uncollapsable">
-            <div class="page-nav-logo">
-              <a href="https://drip.com">
-                <svg xmlns="http://www.w3.org/2000/svg" width="84" height="30" viewBox="0 0 84 30">
-                  <title>Drip</title>
-                  <g fill="#231F20">
-                    <path d="M18 14.5h-2.7v.3c0 4-3.3 6.4-6.3 6.4s-6.3-2.4-6.3-6.4v-.3H0v.3c0 5.5 4.5 9.1 9 9.1s9-3.6 9-9.1v-.3zM9 3.4L10.9 6h3.4C12.7 3.9 11 1.8 9 0 7 1.8 5.3 3.9 3.7 6h3.4L9 3.4z">
-                    </path><ellipse cx="9" cy="10.3" rx="1.8" ry="1.8"></ellipse>
-                    <ellipse cx="14.4" cy="10.3" rx="1.8" ry="1.8"></ellipse>
-                    <ellipse cx="3.6" cy="10.3" rx="1.8" ry="1.8"></ellipse>
-                    <path d="M40.8 23.5h-3.2v-2.6c-1.7 2.1-4 3.1-6.7 3.1s-5.1-.9-6.7-2.5c-1.6-1.6-2.6-3.9-2.6-6.6 0-2.8.9-5 2.6-6.6 1.7-1.6 4-2.5 6.7-2.5 2.9 0 4.9.9 6.7 2.9V0h3.2v23.5zM31.2 8.6c-3.9 0-6.3 2.3-6.3 6.3 0 3.9 2.4 6.2 6.3 6.2 4 0 6.4-2.3 6.4-6.2 0-3.9-2.4-6.3-6.4-6.3zM55.2 8.9h-7.7V24h-3.1V6h10.8zM57.6 1.9c0-.7.3-1.3.9-1.6.6-.4 1.2-.4 1.8 0 .6.3.9.9.9 1.6 0 .7-.3 1.4-.9 1.7-.6.4-1.2.4-1.8 0-.6-.3-.9-1-.9-1.7zm.3 4.3h3V24h-3V6.2zM64.8 6.4H68V9c1.6-1.9 3.7-3 6.7-3 2.7 0 5 .9 6.7 2.5 1.7 1.6 2.6 3.9 2.6 6.6 0 2.8-.9 5-2.6 6.6-1.7 1.6-4 2.5-6.8 2.5s-4.8-.9-6.6-2.9V30h-3.2V6.4zm9.5 15c4 0 6.4-2.3 6.4-6.3 0-3.9-2.4-6.2-6.4-6.2-3.9 0-6.3 2.3-6.3 6.2 0 3.9 2.4 6.3 6.3 6.3z"></path>
-                  </g>
-                </svg>
-              </a>
-            </div>
-            <div class="page-nav-mobile-toggle">
-              <button type="button" class="header-toggle-button hamburger" aria-expanded="false" aria-label="Menu">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-          </div>
-          <div class="page-nav-collapsable">
-            <div class="page-nav-primary">
-              <ul>
-                <li><a class="" href="https://drip.com/features">Features</a></li>
-                <li><a class="" href="https://drip.com/pricing">Pricing</a></li>
-                <li><a class="" href="https://drip.com/integrations">Integrations</a></li>
-                <li><a class="" href="https://drip.com/demo">Demo</a></li>
-              </ul>
-            </div>
-            <div class="page-nav-ctas">
-              <a class="btn btn-black btn-try" href="https://www.getdrip.com/signup/starter">Try for Free</a>
-              <span class="cta-option-label">or</span>
-              <a class="btn btn-login" href="https://www.getdrip.com/signin">Login
-                <svg viewBox="0 0 24 24">
-                  <path fill="#F224F2" d="M4,10V14H13L9.5,17.5L11.92,19.92L19.84,12L11.92,4.08L9.5,6.5L13,10H4Z" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-
     <div class="toc-wrapper">
+      <%= image_tag "logo.svg", class: 'logo' %>
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
@@ -145,7 +94,7 @@ under the License.
     <div id="hello" class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <div class="hello">
+        <div id="hello">
           <section class="page-banner page-banner-sky-to-green page-banner-animated">
             <div class="container-md">
               <h1>Drip API Documentation</h1>
