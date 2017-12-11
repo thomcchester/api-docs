@@ -728,7 +728,29 @@ html, body {
     @extend %header-font;
     font-weight: normal;
     font-size: 3em;
+    padding-top: 1.5em;
     width: auto;
     padding: .5em 28px 1.5em;
   }
+}
+
+.btn-login svg {
+  width: 16px;
+  transform: translateY(3px);
+}
+
+// Section headers
+
+#rest-section,
+#js-section {
+  display: none;
+}
+
+.rest-section, .js-section {
+  text-transform: uppercase;
+  margin: 10px 0 5px 0;
+  padding-left: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed $nav-footer-border-color;
+  font-weight: bold;
 }
