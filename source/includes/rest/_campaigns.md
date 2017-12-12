@@ -48,6 +48,123 @@
 }
 ```
 
+**Properties**
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>id</code></td>
+      <td>A read-only Drip generated unique id used to identify each campaign record.</td>
+    </tr>
+    <tr>
+      <td><code>status</code></td>
+      <td>Returns whether the campaign is active, paused or in draft.</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td>The private name given to the campaign.</td>
+    </tr>
+    <tr>
+      <td><code>from_name</code></td>
+      <td>A "from name" that appears in your sent emails. This setting overrides the account's default from name.</td>
+    </tr>
+    <tr>
+      <td><code>from_email</code></td>
+      <td>A "from email" that appears in your sent emails. This setting overrides the account's default from email.</td>
+    </tr>
+    <tr>
+      <td><code>postal_address</code></td>
+      <td>As required by the <a href="http://1.usa.gov/YgrzFP" target="_blank">CAN-SPAM Act</a>, this is a postal address used for all sent emails.</td>
+    </tr>
+    <tr>
+      <td><code>minutes_from_midnight</code></td>
+      <td>The number of minutes after midnight for the time of day set for email sending.</td>
+    </tr>
+    <tr>
+      <td><code>localize_sending_time</code></td>
+      <td>The scheduled send_at time if set to be sent in the subscriber's time zone.</td>
+    </tr>
+    <tr>
+      <td><code>days_of_the_week_mask</code></td>
+      <td>A representation of the days of week when emails are set to be sent. For example, <code>1111100</code> represents sending enabled only for Mondays to Fridays while <code>1111111</code> represents sending enabled for all days of the week.</td>
+    </tr>
+    <tr>
+      <td><code>start_immediately</code></td>
+      <td>Returns true if the first email in the campaign is set to be delivered immediately after a campaign subscription.</td>
+    </tr>
+    <tr>
+      <td><code>double_optin</code></td>
+      <td>Returns true if doubl opt-in is enabled for the campaign.</td>
+    </tr>
+    <tr>
+      <td><code>send_to_confirmation_page</code></td>
+      <td>Deprecated</td>
+    </tr>
+    <tr>
+      <td><code>use_custom_confirmation_page</code></td>
+      <td>Deprecated</td>
+    </tr>
+    <tr>
+      <td><code>post_confirmation_url</code></td>
+      <td>Deprecated</td>
+    </tr>
+    <tr>
+      <td><code>notify_subscribe_email</code></td>
+      <td>An email address set that receives a notification whenever a subscriber subscribes via a form submission.</td>
+    </tr>
+    <tr>
+      <td><code>notify_unsubscribe_email</code></td>
+      <td>An email address set that receives a notification whenever a subscriber unsubscribes via their subscription management page.</td>
+    </tr>
+    <tr>
+      <td><code>bcc</code></td>
+      <td>A blind copy email address set for all campaign email deliveries.</td>
+    </tr>
+    <tr>
+      <td><code>email_count</code></td>
+      <td>Returns a count of all emails associated with the campaign. Includes all email statuses.</td>
+    </tr>
+    <tr>
+      <td><code>active_subscriber_count</code></td>
+      <td>Returns a count of all subscribers who are actively subscribed to the campaign.</td>
+    </tr>
+    <tr>
+      <td><code>unsubscribed_subscriber_count</code></td>
+      <td>Returns a count of all subscribers who unsubscribed from the campaign via a delivered email.</td>
+    </tr>
+    <tr>
+      <td><code>email_open_rate</code></td>
+      <td>The campaign's all-time open rate.</td>
+    </tr>
+    <tr>
+      <td><code>email_click_rate</code></td>
+      <td>The campaign's all-time click-through rate.</td>
+    </tr>
+    <tr>
+      <td><code>created_at</code></td>
+      <td>A timestamp representing when the campaign was first created.</td>
+    </tr>
+    <tr>
+      <td><code>href</code></td>
+      <td>The url designated for retrieving the campaign record via the REST API.</td>
+    </tr>
+    <tr>
+      <td><code>links</code></td>
+      <td>An object containing the REST API URL for the account, any associated campaign forms and subscribers subscribed to the campaign.</td>
+    </tr>
+    <tr>
+      <td><code>forms</code></td>
+      <td>An object containing the associated form created for the campaign. This is only populated if a form is created for the campaign. <a href="#forms">Refer to Forms</a> for an overview of the properties returned here.</td>
+    </tr>
+  </tbody>
+</table>
+
 ## List all campaigns
 
 > To list all campaigns:
