@@ -1,12 +1,9 @@
 <%#
 Copyright 2008-2013 Concur Technologies, Inc.
-
 Licensed under the Apache License, Version 2.0 (the "License"); you may
 not use this file except in compliance with the License. You may obtain
 a copy of the License at
-
   http://www.apache.org/licenses/LICENSE-2.0
-
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -43,6 +40,7 @@ under the License.
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title><%= current_page.data.title || "API Documentation" %></title>
+    <%= favicon_tag 'images/favicon.ico' %>
 
     <style>
       <%= Rouge::Themes::MonokaiSublime.render(:scope => '.highlight') %>
@@ -59,12 +57,12 @@ under the License.
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
     <a href="#" id="nav-button">
       <span>
-        NAV
         <%= image_tag('navbar.png') %>
       </span>
     </a>
+
     <div class="toc-wrapper">
-      <%= image_tag "logo.png", class: 'logo' %>
+      <%= image_tag "logo.svg", class: 'logo' %>
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
@@ -86,9 +84,9 @@ under the License.
         <% toc_data(page_content).each do |h1| %>
           <li>
             <% if h1[:id] == "rest-section" %>
-              <p class="rest-section">REST API</p>
+              <p class="toc-section">REST API</p>
             <% elsif h1[:id] == "js-section" %>
-              <p class="js-section">JS API</p>
+              <p class="toc-section">JS API</p>
             <% else %>
               <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:content] %>"><%= h1[:content] %></a>
               <% if h1[:children].length > 0 %>
@@ -112,9 +110,16 @@ under the License.
         </ul>
       <% end %>
     </div>
-    <div class="page-wrapper">
+    <div id="hello" class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
+        <div id="hello">
+          <section class="page-banner page-banner-sky-to-green page-banner-animated">
+            <div class="container-md">
+              <h1>Drip API Documentation</h1>
+            </div>
+          </section>
+        </div>
         <%= page_content %>
       </div>
       <div class="dark-box">
