@@ -136,7 +136,7 @@
     </tr>
     <tr>
       <td><code>is_blacklist_enabled</code></td>
-      <td><td>Returns true if blacklisted URLs are set.</td></td>
+      <td>Returns true if blacklisted URLs are set.</td>
     </tr>
     <tr>
       <td><code>hide_on_mobile</code></td>
