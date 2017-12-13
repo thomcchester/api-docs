@@ -37,7 +37,7 @@
   <tbody>
     <tr>
       <td><code>id</code></td>
-      <td>The currently authenticated user's email address.</td>
+      <td>A read-only Drip generated unique id used to identify each workflow record.</td>
     </tr>
     <tr>
       <td><code>href</code></td>
