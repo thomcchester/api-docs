@@ -13,6 +13,7 @@ toc_footers:
 includes_rest_api:
   - rest/authentication
   - rest/rate_limiting
+  - rest/batch_api
   - rest/pagination
   - rest/errors
   - rest/accounts
@@ -27,7 +28,6 @@ includes_rest_api:
   - rest/tags
   - rest/users
   - rest/workflows
-  - rest/batch_api
   - rest/webhooks
   - rest/webhook_events
 

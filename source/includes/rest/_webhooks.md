@@ -30,6 +30,51 @@
 }
 ```
 
+**Properties**
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>id</code></td>
+      <td>A read-only Drip generated unique id used to identify each webhook record.</td>
+    </tr>
+    <tr>
+      <td><code>href</code></td>
+      <td>The url designated for retrieving the webhook record via the REST API.</td>
+    </tr>
+    <tr>
+      <td><code>post_url</code></td>
+      <td>The url that the webhook will post to.</td>
+    </tr>
+    <tr>
+      <td><code>version</code></td>
+      <td>The webhook version. The current stable version is 2.</td>
+    </tr>
+    <tr>
+      <td><code>include_received_email</code></td>
+      <td>Returns true if a notification is sent whenever a subscriber receives an email.</td>
+    </tr>
+    <tr>
+      <td><code>created_at</code></td>
+      <td>A timestamp representing when the webhook record was first created.</td>
+    </tr>
+     <tr>
+      <td><code>events</code></td>
+      <td>An array specifying which events are enabled for webhook notifications.</td>
+    </tr>
+     <tr>
+      <td><code>links</code></td>
+      <td>An object containing the REST API URL for the account.</td>
+    </tr>
+  </tbody>
+</table>
+
 ## List all webhooks
 
 > To list all webhooks in an account:

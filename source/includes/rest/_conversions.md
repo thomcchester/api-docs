@@ -28,6 +28,55 @@
 }
 ```
 
+**Properties**
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>id</code></td>
+      <td>A read-only Drip generated unique id used to identify each conversion record.</td>
+    </tr>
+    <tr>
+      <td><code>status</code></td>
+      <td>Returns whether the conversion is enabled or disabled.</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td>The private name given to the conversion.</td>
+    </tr>
+    <tr>
+      <td><code>url</code></td>
+      <td>A URL used for detecting and recording conversions.</td>
+    </tr>
+    <tr>
+      <td><code>default_value</code></td>
+      <td>A default value assigned to a tracked conversion.</td>
+    </tr>
+    <tr>
+      <td><code>counting_method</code></td>
+      <td>Set either as <code>one_per_visitor</code> or <code>all</code> and determines whether a maximum of one conversion is counted per person or all.</td>
+    </tr>
+    <tr>
+      <td><code>created_at</code></td>
+      <td>A timestamp representing when the conversion was first created.</td>
+    </tr>
+    <tr>
+      <td><code>href</code></td>
+      <td>The url designated for retrieving the conversion record via the REST API.</td>
+    </tr>
+    <tr>
+      <td><code>links</code></td>
+      <td>An object containing the REST API URL for the account.</td>
+    </tr>
+  </tbody>
+</table>
+
 See the Events API for recording conversion events.
 
 ## List all conversions

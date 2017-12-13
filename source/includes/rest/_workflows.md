@@ -25,6 +25,43 @@
 }
 ```
 
+**Properties**
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>id</code></td>
+      <td>A read-only Drip generated unique id used to identify each workflow record.</td>
+    </tr>
+    <tr>
+      <td><code>href</code></td>
+      <td>The url designated for retrieving the workflow record via the REST API.</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td>The name assigned to the workflow.</td>
+    </tr>
+    <tr>
+      <td><code>status</code></td>
+      <td>The workflow's status whether <code>draft</code>, <code>active</code>, or <code>paused</code>.</td>
+    </tr>
+    <tr>
+      <td><code>created_at</code></td>
+      <td>A timestamp representing when the workflow record was first created.</td>
+    </tr>
+    <tr>
+      <td><code>links</code></td>
+      <td>An object containing the REST API URL for the account.</td>
+    </tr>
+  </tbody>
+</table>
+
 ## List all workflows
 
 > To list all workflows:

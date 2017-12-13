@@ -30,6 +30,67 @@
 }
 ```
 
+**Properties**
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>id</code></td>
+      <td>A read-only Drip generated unique id used to identify each subscriber record.</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td>The name assigned to each account. Defaults to the account's website URL.</td>
+    </tr>
+    <tr>
+      <td><code>url</code></td>
+      <td>The account's website URL.</td>
+    </tr>
+    <tr>
+      <td><code>default_from_name</code></td>
+      <td>A default "from name" that appears in your sent emails and can be changed on a per email basis.</td>
+    </tr>
+    <tr>
+      <td><code>default_from_email</code></td>
+      <td>A default "from email" that appears in your sent emails and can be changed on a per email basis.</td>
+    </tr>
+    <tr>
+      <td><code>default_postal_address</code></td>
+      <td>As required by the <a href="http://1.usa.gov/YgrzFP" target="_blank">CAN-SPAM Act</a>, this is a default postal address used for all sent emails and can be changed on a per email basis.</td>
+    </tr>
+    <tr>
+      <td><code>primary_email</code></td>
+      <td>The account owner's email address.</td>
+    </tr>
+    <tr>
+      <td><code>enable_third_party_cookies</code></td>
+      <td>When enabled allows tracking visitors across multiple domains (e.g. you use a shopping cart system hosted on a different site).</td>
+    </tr>
+    <tr>
+      <td><code>phone_number</code></td>
+      <td>The account's primary contact number.</td>
+    </tr>
+    <tr>
+      <td><code>created_at</code></td>
+      <td>A read-only Drip generated timestamp for when the account was first created.</td>
+    </tr>
+    <tr>
+      <td><code>href</code></td>
+      <td>The url designated for retrieving the account record via the REST API.</td>
+    </tr>
+    <tr>
+      <td><code>links</code></td>
+      <td>An object containing URLs for campaign, broadcast and conversion resources. Note, conversions are represented as "Goals".</td>
+    </tr>
+  </tbody>
+</table>
+
 ## List all accounts
 
 > To list all accounts the authenticated user has access to:

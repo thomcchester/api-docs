@@ -47,7 +47,36 @@ In addition, you will be notified and your webhook will be temporarily disabled 
 }
 ```
 
-These are the fields you can expect when you see `"subscriber": { ... }` below.
+An example of the fields you can expect when you see `"subscriber": { ... }` is on the right. You may also refer to the Subscribers docs <a href="#subscribers">here</a>.
+
+**Properties**
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>event</code></td>
+      <td>The webhook notification's event name. For example, <code>subscrber.received_email</code>.</td>
+    </tr>
+    <tr>
+      <td><code>data</code></td>
+      <td>An object containing the subscriber's properties. Refer to <a href="#subscribers">Subscribers</a> for what's included in this object.</td>
+    </tr>
+    <tr>
+      <td><code>account_id</code></td>
+      <td>The id for the account that sent the notification.</td>
+    </tr>
+    <tr>
+      <td><code>occurred_at</code></td>
+      <td>The String time at which the event occurred in <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format.</td>
+    </tr>
+  </tbody>
+</table>
 
 ## subscriber.created
 

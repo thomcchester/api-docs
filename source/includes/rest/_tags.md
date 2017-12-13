@@ -21,6 +21,31 @@ curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/tags" \
 }
 ```
 
+**Properties**
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>email</code></td>
+      <td>The currently authenticated user's email address.</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td>The currently authenticated user's name.</td>
+    </tr>
+    <tr>
+      <td><code>time_zone</code></td>
+      <td>The currently authenticated user's time zone.</td>
+    </tr>
+  </tbody>
+</table>
+
 ### HTTP Endpoint
 
 `GET /:account_id/tags`

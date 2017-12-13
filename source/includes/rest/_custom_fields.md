@@ -18,6 +18,23 @@ curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/custom_field_identifiers" \
 }
 ```
 
+**Properties**
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>custom_field_identifiers</code></td>
+      <td>Returns a list of all active custom field identifiers used in the target account.</td>
+    </tr>
+  </tbody>
+</table>
+
 ### HTTP Endpoint
 
 `GET /:account_id/custom_field_identifiers`
