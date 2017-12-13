@@ -41,6 +41,99 @@
 }
 ```
 
+**Properties**
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>id</code></td>
+      <td>A read-only Drip generated unique id used to identify each subscriber record.</td>
+    </tr>
+    <tr>
+      <td><code>status</code></td>
+      <td>The subscriber's status whether <code>active</code> or <code>unsubscribed</code>.</td>
+    </tr>
+    <tr>
+      <td><code>email</code></td>
+      <td>The subscriber's email address.</td>
+    </tr>
+    <tr>
+      <td><code>time_zone</code></td>
+      <td>The subscriber's time zone (in Olson format).</td>
+    </tr>
+    <tr>
+      <td><code>utc_offset</code></td>
+      <td>The UTC offset in minutes relative to UTC/GMT.</td>
+    </tr>
+    <tr>
+      <td><code>visitor_uuid</code></td>
+      <td>A read-only Drip generated unique id used to identify each subscriber's visitor record if available.</td>
+    </tr>
+    <tr>
+      <td><code>custom_fields</code></td>
+      <td>An Object containing custom field data. E.g. <code>{ "name": "John Doe" }</code>.</td>
+    </tr>
+    <tr>
+      <td><code>tags</code></td>
+      <td>An Array containing one or more tags. E.g. <code>["Customer", "SEO"]</code>.</td>
+    </tr>
+    <tr>
+      <td><code>ip_address</code></td>
+      <td>The subscriber's IP address if available.</td>
+    </tr>
+    <tr>
+      <td><code>user_agent</code></td>
+      <td>The subscriber's browser User Agent if available.</td>
+    </tr>
+    <tr>
+      <td><code>original_referrer</code></td>
+      <td>The initial referral URL when the subscriber first visited your site if available.</td>
+    </tr>
+    <tr>
+      <td><code>landing_url</code></td>
+      <td>The first page visited by the subscriber if available.</td>
+    </tr>
+    <tr>
+      <td><code>prospect</code></td>
+      <td>Returns true if the subscriber is marked as a lead.</td>
+    </tr>
+    <tr>
+      <td><code>lead_score</code></td>
+      <td>The subscriber's lead score.</td>
+    </tr>
+    <tr>
+      <td><code>lifetime_value</code></td>
+      <td>The subscriber's lifetime value in cents.</td>
+    </tr>
+    <tr>
+      <td><code>created_at</code></td>
+      <td>A timestamp representing when the subscriber record was first created.</td>
+    </tr>
+    <tr>
+      <td><code>href</code></td>
+      <td>The url designated for retrieving the subscriber record via the REST API.</td>
+    </tr>
+    <tr>
+      <td><code>user_id</code></td>
+      <td>A unique identifier for the user in your database, such as a primary key.</td>
+    </tr>
+    <tr>
+      <td><code>base_lead_score</code></td>
+      <td>An Integer specifying the starting value for lead score calculation for this subscriber. Defaults to <code>30</code>.</td>
+    </tr>
+    <tr>
+      <td><code>links</code></td>
+      <td>An object containing the REST API URL for the account.</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ## Create or update a subscriber
 
