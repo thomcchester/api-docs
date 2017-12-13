@@ -117,6 +117,14 @@ curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/goals" \
       <td><code>status</code></td>
       <td>Optional. The status to filter by: <code>active</code>, <code>disabled</code>, or <code>all</code>. Defaults to <code>all</code>.</td>
     </tr>
+    <tr>
+      <td><code>sort</code></td>
+      <td>Optional. Sort results by one of these fields: <code>created_at</code> or <code>name</code>. Defaults to <code>created_at</code>.</td>
+    </tr>
+    <tr>
+      <td><code>direction</code></td>
+      <td>Optional. Filter sort direction with: <code>asc</code> or <code>desc</code>. Defaults to <code>asc</code>.</td>
+    </tr>
   </tbody>
 </table>
 
