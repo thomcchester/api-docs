@@ -154,6 +154,14 @@ curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/broadcasts" \
       <td><code>status</code></td>
       <td>Optional. Filter by one of the following statuses: <code>draft</code>, <code>scheduled</code>, or <code>sent</code>. Defaults to <code>all</code>.</td>
     </tr>
+    <tr>
+      <td><code>sort</code></td>
+      <td>Optional. Sort results by one of these fields: <code>created_at</code>, <code>send_at</code>, or <code>name</code>. Defaults to <code>created_at</code>.</td>
+    </tr>
+    <tr>
+      <td><code>direction</code></td>
+      <td>Optional. Filter sort direction with: <code>asc</code> or <code>desc</code>. Defaults to <code>asc</code>.</td>
+    </tr>
   </tbody>
 </table>
 
