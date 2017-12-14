@@ -139,6 +139,30 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/batches" \
   EOF
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+# An array of events
+events = [
+  {
+    "email": "john@acme.com",
+    "action": "Opened a door"
+  },
+  {
+    "email": "joe@acme.com",
+    "action": "Closed a door"
+  }
+  # ...
+]
+
+response = client.track_events(events)
+```
+
 > Responds with a `201 Created` response and an empty JSON response if successful:
 
 ```json
