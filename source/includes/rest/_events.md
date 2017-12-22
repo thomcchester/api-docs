@@ -33,7 +33,7 @@ end
 email = "someone@example.com"
 action = "Docked with space station"
 properties = {
-  station: "ISS"
+  station: "Mars Endeavor"
 }
 
 response = client.track_event(email, action, properties)
