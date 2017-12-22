@@ -248,6 +248,22 @@ curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID" \
   -u YOUR_API_KEY:
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+campaign_id = 9999999
+response = client.campaign(campaign_id)
+
+if response.success?
+  puts response.body
+end
+```
+
 > The response looks like this:
 
 ```json
@@ -280,6 +296,22 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/a
   -u YOUR_API_KEY:
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+campaign_id = 9999999
+response = client.activate_campaign(campaign_id)
+
+if response.success?
+  puts response.body
+end
+```
+
 > Responds with a `204 No Content` if successful. If the campaign cannot be activated, returns a `422 Unprocessable Entity`.
 
 ### HTTP Endpoint
@@ -300,6 +332,22 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/p
   -u YOUR_API_KEY:
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+campaign_id = 9999999
+response = client.pause_campaign(campaign_id)
+
+if response.success?
+  puts response.body
+end
+```
+
 > Responds with a `204 No Content` if successful. If the campaign cannot be paused, returns a `422 Unprocessable Entity`.
 
 ### HTTP Endpoint
@@ -318,6 +366,22 @@ None.
 curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/subscribers" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+campaign_id = 9999999
+response = client.campaign_subscribers(campaign_id)
+
+if response.success?
+  puts response.body["subscribers]
+end
 ```
 
 > The response looks like this:
@@ -399,6 +463,30 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/s
   EOF
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+campaign_id = 9999999
+email = "someone@example.com"
+options = {
+  time_zone: "America/Los_Angeles",
+  custom_fields: {
+    name: "Jane Doe"
+  }
+}
+
+response = client.subscribe(email, campaign_id, options)
+
+if response.success?
+  # ...
+end
+```
+
 > The response looks like this:
 
 ```json
@@ -475,6 +563,23 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/s
 curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/SUBSCRIBER_ID/campaign_subscriptions" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+subscriber_id = "bihfwo84teh35dgt99"
+
+response = client.campaign_subscriptions(subscriber_id)
+
+if response.success?
+  puts response.body["campaign_subscriptions"]
+end
 ```
 
 > The response looks like this:

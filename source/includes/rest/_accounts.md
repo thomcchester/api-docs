@@ -144,6 +144,22 @@ curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/accounts/ACCOUNT_ID" \
   -u YOUR_API_KEY:
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+account_id = 9999999
+response = client.account(account_id)
+
+if response.success?
+  puts response.body
+end
+```
+
 > The response looks like this:
 
 ```json

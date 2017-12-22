@@ -117,6 +117,21 @@ curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/broadcasts" \
   -u YOUR_API_KEY:
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+response = client.broadcasts
+
+if response.success?
+  puts response.body["broadcasts"]
+end
+```
+
 > The response looks like this:
 
 ```json
@@ -173,6 +188,22 @@ curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/broadcasts" \
 curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/broadcasts/BROADCAST_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+broadcast_id = 9999999
+response = client.broadcast(broadcast_id)
+
+if response.success?
+  puts response.body
+end
 ```
 
 > The response looks like this:
