@@ -10,6 +10,21 @@ curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/custom_field_identifiers" \
   -u YOUR_API_KEY:
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+response = client.custom_fields
+
+if response.success?
+  puts response.body
+end
+```
+
 > The response looks like this:
 
 ```json

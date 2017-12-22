@@ -167,6 +167,21 @@ curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/forms" \
   -u YOUR_API_KEY:
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+response = client.forms
+
+if response.success?
+  puts response.body["forms"]
+end
+```
+
 > The response looks like this:
 
 ```json
@@ -193,6 +208,22 @@ None.
 curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/forms/FORM_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+form_id = 9999999
+response = client.form(form_id)
+
+if response.success?
+  puts response.body["forms"]
+end
 ```
 
 > The response looks like this:

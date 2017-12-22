@@ -34,6 +34,32 @@ curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/batches" \
   EOF
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+# An array of subscribers
+subscribers = [
+  {
+    "email": "john@acme.com"
+  },
+  {
+    "email": "jane@acme.com"
+  }
+  # ...
+]
+
+response = client.create_or_update_subscribers(subscribers)
+
+if response.success?
+  # ...
+end
+```
+
 > Responds with a `201 Created` response and an empty JSON response if successful:
 
 ```json
@@ -82,12 +108,38 @@ curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/unsubscribes/batches" \
           "email": "john@acme.com"
         },
         {
-          "email": "joe@acme.com"
+          "email": "jane@acme.com"
         }
       ]
     }]
   }
   EOF
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+# An array of subscribers
+subscribers = [
+  {
+    "email": "john@acme.com"
+  },
+  {
+    "email": "jane@acme.com"
+  }
+  # ...
+]
+
+response = client.unsubscribe_subscribers(subscribers)
+
+if response.success?
+  # ...
+end
 ```
 
 > Responds with a `204 No Content` response if successful.
