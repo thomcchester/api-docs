@@ -5,7 +5,7 @@
 > To list all tags:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/tags" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/tags" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -59,7 +59,7 @@ None.
 > To apply a tag to a specific subscriber:
 
 ```shell
-curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/tags" \
+curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/tags" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -108,7 +108,7 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/tags" \
 > To apply a tag to a specific subscriber:
 
 ```shell
-curl -X DELETE "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/tags/TAG" \
+curl -X DELETE "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/tags/TAG" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```

@@ -38,8 +38,8 @@
 ```json
 {
   "links": {
-    "purchases.account": "https://api.getdrip.com/v2/accounts/{purchases.account}",
-    "purchases.subscriber": "https://api.getdrip.com/v2/subscribers/{purchases.subscriber}"
+    "purchases.account": "https://api.drip.com/v2/accounts/{purchases.account}",
+    "purchases.subscriber": "https://api.drip.com/v2/subscribers/{purchases.subscriber}"
   }
 }
 ```
@@ -135,7 +135,7 @@
 > To create a purchase for a subscriber:
 
 ```shell
-curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/purchases" \
+curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/purchases" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -263,7 +263,7 @@ will be automatically incremented by the total amount of the purchase.
 > To list all purchases:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/purchases" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/purchases" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -310,7 +310,7 @@ curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/purchas
 > To fetch a specific purchase:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/purchases/PURCHASE_ID" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/purchases/PURCHASE_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```

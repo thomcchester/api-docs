@@ -5,7 +5,7 @@
 > To list all custom fields:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/custom_field_identifiers" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/custom_field_identifiers" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
