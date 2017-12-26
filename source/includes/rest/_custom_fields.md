@@ -21,7 +21,7 @@ end
 response = client.custom_fields
 
 if response.success?
-  puts response.body
+  puts response.body["custom_field_identifiers"]
 end
 ```
 
