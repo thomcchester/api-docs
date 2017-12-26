@@ -5,7 +5,7 @@
 ```json
 {
   "id": "123456",
-  "href": "https://api.getdrip.com/v2/9999999/workflows/123456",
+  "href": "https://api.drip.com/v2/9999999/workflows/123456",
   "name": "Main Funnel",
   "status": "active",
   "created_at": "2016-07-01T10:00:00Z",
@@ -20,7 +20,7 @@
 ```json
 {
   "links": {
-    "workflows.account": "https://api.getdrip.com/v2/accounts/{workflows.account}"
+    "workflows.account": "https://api.drip.com/v2/accounts/{workflows.account}"
   }
 }
 ```
@@ -67,9 +67,24 @@
 > To list all workflows:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+response = client.workflows
+
+if response.success?
+  puts response.body["workflows"]
+end
 ```
 
 > The response looks like this:
@@ -125,9 +140,25 @@ curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows" \
 > To fetch a workflow:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+workflow_id = 9999999
+response = client.workflow(workflow_id)
+
+if response.success?
+  puts response.body["workflows"]
+end
 ```
 
 > The response looks like this:
@@ -153,9 +184,25 @@ None.
 > To activate a workflow:
 
 ```shell
-curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/activate" \
+curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/activate" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+workflow_id = 9999999
+response = client.activate_workflow(workflow_id)
+
+if response.success?
+  # ...
+end
 ```
 
 > Responds with a `204 No Content` if successful.
@@ -173,9 +220,25 @@ None.
 > To pause a workflow:
 
 ```shell
-curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/pause" \
+curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/pause" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+workflow_id = 9999999
+response = client.pause_workflow(workflow_id)
+
+if response.success?
+  # ...
+end
 ```
 
 > Responds with a `204 No Content` if successful.
@@ -193,7 +256,7 @@ None.
 > To start a someone on a workflow:
 
 ```shell
-curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/subscribers" \
+curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/subscribers" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -207,6 +270,29 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/s
     }]
   }
   EOF
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+workflow_id = 9999999
+options = {
+  email: "john@acme.com",
+  time_zone: "America/Los_Angeles",
+  custom_fields: {
+    name: "John Doe"
+  }
+}
+response = client.start_subscriber_workflow(workflow_id, options)
+
+if response.success?
+  puts response.body["subscribers"]
+end
 ```
 
 > The response looks like this:
@@ -272,9 +358,27 @@ If the workflow is not active, the subscriber will not be added to the workflow.
 > To remove someone from a workflow:
 
 ```shell
-curl -X DELETE "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/subscribers/ID_OR_EMAIL" \
+curl -X DELETE "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/subscribers/ID_OR_EMAIL" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+workflow_id = 9999999
+subscriber_email = "john@acme.com"
+
+response = client.remove_subscriber_workflow(workflow_id, subscriber_email)
+
+if response.success?
+  # ...
+end
 ```
 
 > Responds with a `204 No Content` if successful.
@@ -294,9 +398,25 @@ None.
 > To list all triggers on a workflow:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/triggers" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/triggers" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+workflow_id = 9999999
+response = client.workflow_triggers(workflow_id)
+
+if response.success?
+  puts response.body["triggers"]
+end
 ```
 
 > The response looks like this:
@@ -336,7 +456,7 @@ None.
 > To create a workflow trigger:
 
 ```shell
-curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/triggers" \
+curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/triggers" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -352,6 +472,29 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/t
     ]
   }
   EOF
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+workflow_id = 9999999
+options = {
+  provider: "leadpages",
+  trigger_type: "submitted_landing_page",
+  properties: {
+    landing_page: "My Landing Page"
+  }
+}
+response = client.create_workflow_trigger(workflow_id, options)
+
+if response.success?
+  puts response.body["triggers"]
+end
 ```
 
 > The response looks like this:
@@ -412,7 +555,7 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/t
 > To update a workflow trigger:
 
 ```shell
-curl -X PUT "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/triggers/TRIGGER_ID" \
+curl -X PUT "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/triggers/TRIGGER_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -428,6 +571,29 @@ curl -X PUT "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/tr
     ]
   }
   EOF
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+workflow_id = 9999999
+options = {
+  provider: "leadpages",
+  trigger_type: "submitted_landing_page",
+  properties: {
+    landing_page: "My Landing Page"
+  }
+}
+response = client.update_workflow_trigger(workflow_id, options)
+
+if response.success?
+  puts response.body["triggers"]
+end
 ```
 
 > The response looks like this:

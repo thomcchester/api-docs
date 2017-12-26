@@ -5,9 +5,24 @@
 > To list all custom fields:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/custom_field_identifiers" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/custom_field_identifiers" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+response = client.custom_fields
+
+if response.success?
+  puts response.body["custom_field_identifiers"]
+end
 ```
 
 > The response looks like this:

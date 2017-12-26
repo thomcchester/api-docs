@@ -5,7 +5,7 @@
 ```json
 {
   "id": "77777",
-  "href": "https://api.getdrip.com/v2/9999999/webhooks/77777",
+  "href": "https://api.drip.com/v2/9999999/webhooks/77777",
   "post_url": "http://www.mysite.com/my-webhook-endpoint",
   "version": "1",
   "include_received_email": false,
@@ -25,7 +25,7 @@
 ```json
 {
   "links": {
-    "webhooks.account": "https://api.getdrip.com/v2/accounts/{webhooks.account}"
+    "webhooks.account": "https://api.drip.com/v2/accounts/{webhooks.account}"
   }
 }
 ```
@@ -80,9 +80,24 @@
 > To list all webhooks in an account:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+response = client.webhooks
+
+if response.success?
+  puts response.body["webhooks"]
+end
 ```
 
 > The response looks like this:
@@ -108,9 +123,25 @@ None.
 > To fetch a specific webhook:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/webhooks/WEBHOOK_ID" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/webhooks/WEBHOOK_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+webhook_id = 999999
+response = client.webhook(webhook_id)
+
+if response.success?
+  puts response.body["webhooks"]
+end
 ```
 
 > The response looks like this:
@@ -136,7 +167,7 @@ None.
 > To create a webhook:
 
 ```shell
-curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
+curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -152,6 +183,28 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
   EOF
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+pot_url = "https://www.mylistener.com/receieve"
+include_received_email = false
+events = [
+  "subscriber.created",
+  "subscriber.subscribed_to_campaign"
+]
+
+response = client.create_webhook(post_url, include_received_email, events)
+
+if response.success?
+  puts response.body["webhooks"]
+end
+```
+
 > Responds with a `201 Created` like this:
 
 ```json
@@ -159,7 +212,7 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
   "links": { ... },
   "webhooks": [{
     "id": "77777",
-    "href": "https://api.getdrip.com/v2/9999999/webhooks/77777",
+    "href": "https://api.drip.com/v2/9999999/webhooks/77777",
     "post_url": "http://www.example.com/api/v2/form",
     "version": "1",
     "include_received_email": false,
@@ -209,9 +262,25 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
 > To destroy an existing webhook:
 
 ```shell
-curl -X DELETE "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/webhooks/WEBHOOK_ID" \
+curl -X DELETE "https://api.drip.com/v2/YOUR_ACCOUNT_ID/webhooks/WEBHOOK_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+webhook_id = 999999
+response = client.delete_webhook(webhook_id)
+
+if response.success?
+  # ...
+end
 ```
 
 > Responds with a `204 No Content` if successful.

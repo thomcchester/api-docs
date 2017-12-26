@@ -5,7 +5,7 @@
 > To create or update a batch of subscribers:
 
 ```shell
-curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/batches" \
+curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/batches" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -32,6 +32,32 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/batches" \
     }]
   }
   EOF
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+# An array of subscribers
+subscribers = [
+  {
+    "email": "john@acme.com"
+  },
+  {
+    "email": "jane@acme.com"
+  }
+  # ...
+]
+
+response = client.create_or_update_subscribers(subscribers)
+
+if response.success?
+  # ...
+end
 ```
 
 > Responds with a `201 Created` response and an empty JSON response if successful:
@@ -71,7 +97,7 @@ request and the time your data appears in user interface.
 > To globally unsubscribe a batch of subscribers:
 
 ```shell
-curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/unsubscribes/batches" \
+curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/unsubscribes/batches" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -82,12 +108,38 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/unsubscribes/batches" \
           "email": "john@acme.com"
         },
         {
-          "email": "joe@acme.com"
+          "email": "jane@acme.com"
         }
       ]
     }]
   }
   EOF
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+# An array of subscribers
+subscribers = [
+  {
+    "email": "john@acme.com"
+  },
+  {
+    "email": "jane@acme.com"
+  }
+  # ...
+]
+
+response = client.unsubscribe_subscribers(subscribers)
+
+if response.success?
+  # ...
+end
 ```
 
 > Responds with a `204 No Content` response if successful.
@@ -118,7 +170,7 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/unsubscribes/batches" \
 > To create or update a batch of subscribers:
 
 ```shell
-curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/batches" \
+curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/batches" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -137,6 +189,30 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/batches" \
     }]
   }
   EOF
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+# An array of events
+events = [
+  {
+    "email": "john@acme.com",
+    "action": "Opened a door"
+  },
+  {
+    "email": "joe@acme.com",
+    "action": "Closed a door"
+  }
+  # ...
+]
+
+response = client.track_events(events)
 ```
 
 > Responds with a `201 Created` response and an empty JSON response if successful:

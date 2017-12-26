@@ -2,9 +2,8 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - javascript
+  - shell: cURL
+  - ruby: Ruby
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -45,7 +44,7 @@ search: true
 # Introduction
 
 Welcome to the Drip API! The REST API communicates exclusively in JSON over SSL (HTTPS).
-All endpoint URLs begin with `https://api.getdrip.com/v2/`.
+All endpoint URLs begin with `https://api.drip.com/v2/`.
 
 Parameters must be serialized in JSON and passed in the request body (not in the query string or form parameters).
 This API is modeled after earlier versions of the [JSON API](http://jsonapi.org/) specification.

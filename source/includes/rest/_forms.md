@@ -5,7 +5,7 @@
 ```json
 {
   "id": "77777",
-  "href": "https://api.getdrip.com/v2/9999999/forms/77777",
+  "href": "https://api.drip.com/v2/9999999/forms/77777",
   "headline": "Long Tail SEO Course",
   "description": "Get our FREE email course",
   "button_text": "Sign Up!",
@@ -39,7 +39,7 @@
 ```json
 {
   "links": {
-    "forms.account": "https://api.getdrip.com/v2/accounts/{forms.account}"
+    "forms.account": "https://api.drip.com/v2/accounts/{forms.account}"
   }
 }
 ```
@@ -162,9 +162,24 @@
 > To list all forms in an account:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/forms" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/forms" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+response = client.forms
+
+if response.success?
+  puts response.body["forms"]
+end
 ```
 
 > The response looks like this:
@@ -190,9 +205,25 @@ None.
 > To fetch a specific form:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/forms/FORM_ID" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/forms/FORM_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+form_id = 9999999
+response = client.form(form_id)
+
+if response.success?
+  puts response.body["forms"]
+end
 ```
 
 > The response looks like this:

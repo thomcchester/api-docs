@@ -5,7 +5,7 @@
 > To create or update a subscriber:
 
 ```shell
-curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/events" \
+curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/events" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -20,6 +20,27 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/events" \
     }]
   }
   EOF
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+email = "someone@example.com"
+action = "Docked with space station"
+properties = {
+  station: "Mars Endeavor"
+}
+
+response = client.track_event(email, action, properties)
+
+if response.success?
+  # ...
+end
 ```
 
 > Responds with a `204 No Content` if successful.
@@ -73,9 +94,24 @@ If you need to create or update a collection of events at once, use the Batch AP
 > To list custom event actions:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/event_actions" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/event_actions" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+response = client.event_actions
+
+if response.success?
+  puts response["event_actions"]
+end
 ```
 
 > The response looks like this:

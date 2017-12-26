@@ -11,7 +11,7 @@
   "default_value": 2000,
   "counting_method": "one_per_visitor",
   "created_at": "2013-06-21T10:31:58Z",
-  "href": "https://api.getdrip.com/v2/9999999/goals/99999",
+  "href": "https://api.drip.com/v2/9999999/goals/99999",
   "links": {
     "account": "9999999"
   }
@@ -23,7 +23,7 @@
 ```json
 {
   "links": {
-    "goals.account": "https://api.getdrip.com/v2/accounts/{goals.account}"
+    "goals.account": "https://api.drip.com/v2/accounts/{goals.account}"
   }
 }
 ```
@@ -84,9 +84,24 @@ See the Events API for recording conversion events.
 > To list all conversions in an account:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/goals" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/goals" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+response = client.conversions
+
+if response.success?
+  puts response.body["goals"]
+end
 ```
 
 > The response looks like this:
@@ -133,9 +148,25 @@ curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/goals" \
 > To fetch a conversion:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/goals/CONVERSION_ID" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/goals/CONVERSION_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+conversion_id = 9999999
+response = client.conversion(conversion_id)
+
+if response.success?
+  puts response.body["goals"]
+end
 ```
 
 > The response looks like this:

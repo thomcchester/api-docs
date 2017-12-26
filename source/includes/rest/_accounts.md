@@ -14,7 +14,7 @@
   "enable_third_party_cookies": false,
   "phone_number": "999-999-9999",
   "created_at": "2013-06-21T10:31:58Z",
-  "href": "https://api.getdrip.com/v2/accounts/9999999"
+  "href": "https://api.drip.com/v2/accounts/9999999"
 }
 ```
 
@@ -23,9 +23,9 @@
 ```json
 {
   "links": {
-    "accounts.broadcasts": "https://api.getdrip.com/v2/{accounts.id}/broadcasts",
-    "accounts.campaigns": "https://api.getdrip.com/v2/{accounts.id}/campaigns",
-    "accounts.goals": "https://api.getdrip.com/v2/{accounts.id}/goals"
+    "accounts.broadcasts": "https://api.drip.com/v2/{accounts.id}/broadcasts",
+    "accounts.campaigns": "https://api.drip.com/v2/{accounts.id}/campaigns",
+    "accounts.goals": "https://api.drip.com/v2/{accounts.id}/goals"
   }
 }
 ```
@@ -96,9 +96,24 @@
 > To list all accounts the authenticated user has access to:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/accounts" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/accounts" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+response = client.accounts
+
+if response.success?
+  puts response.body["accounts"]
+end
 ```
 
 > The response looks like this:
@@ -124,9 +139,25 @@ None.
 > To fetch a specific account:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/accounts/ACCOUNT_ID" \
+curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/accounts/ACCOUNT_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+account_id = 9999999
+response = client.account(account_id)
+
+if response.success?
+  puts response.body
+end
 ```
 
 > The response looks like this:
