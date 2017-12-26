@@ -167,6 +167,42 @@ curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/pu
   EOF
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+subscriber_email = "someone@example.com"
+amount = 149000
+options = {
+  properties: {
+    "address": "123 Anywhere St"
+  },
+  items: [
+    {
+      id: "8888888",
+      product_id: "765432",
+      sku: "4444",
+      amount: 4900,
+      name: "Canoe",
+      quantity: 1,
+      properties: {
+        color: "black"
+      }
+    }
+  ],
+  occurred_at: "2013-06-21T10:31:58Z"
+}
+response = client.create_purchase(subscriber_email, amount, options)
+
+if response.success?
+  # ...
+end
+```
+
 > Responds with a `201 Created` and an empty JSON response:
 
 ```json
@@ -268,6 +304,22 @@ curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/purchases"
   -u YOUR_API_KEY:
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+subscriber_email = "someone@example.com"
+response = client.purchases(subscriber_email)
+
+if response.success?
+  puts response.body["purchases"]
+end
+```
+
 > The response looks like this:
 
 ```json
@@ -313,6 +365,23 @@ curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/purchases"
 curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/purchases/PURCHASE_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+subscriber_email = "someone@example.com"
+id = 9999999
+response = client.purchase(subscriber_email, id)
+
+if response.success?
+  puts response.body["purchases"]
+end
 ```
 
 > The response looks like this:
