@@ -156,6 +156,29 @@ curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers" \
   EOF
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+subscriber_email = "john@acme.com"
+options = {
+  time_zone: "America/Los_Angeles",
+  custom_fields: {
+    name: "John Doe"
+  }
+}
+
+response = client.create_or_update_subscriber(subscriber_email, options)
+
+if response.success?
+  puts response.body["subscribers"]
+end
+```
+
 > The response looks like this:
 
 ```json
@@ -245,6 +268,21 @@ curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers" \
   -u YOUR_API_KEY:
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+response = client.subscribers
+
+if response.success?
+  puts response.body["subscribers"]
+end
+```
+
 > The response looks like this:
 
 ```json
@@ -318,6 +356,23 @@ curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL" \
   -u YOUR_API_KEY:
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+subscriber_email = "john@acme.com"
+
+response = client.subscriber(subscriber_email)
+
+if response.success?
+  puts response.body["subscribers"]
+end
+```
+
 > The response looks like this:
 
 ```json
@@ -344,6 +399,41 @@ None.
 curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/remove" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+##
+# To remove a subscriber from all campaigns:
+##
+
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+subscriber_email = "john@acme.com"
+response = client.unsubscribe(subscriber_email)
+
+if response.success?
+  puts response.body["subscribers"]
+end
+
+##
+# To remove a subscriber from a specific campaign:
+##
+
+subscriber_email = "john@acme.com"
+options = {
+  campaign_id: 9999999
+}
+
+response = client.unsubscribe(subscriber_email, options)
+
+if response.success?
+  puts response.body["subscribers"]
+end
 ```
 
 > To remove a subscriber from a specific campaign:
@@ -397,6 +487,22 @@ curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/un
   -u YOUR_API_KEY:
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+subscriber_email = "john@acme.com"
+response = client.unsubscribe_from_all(subscriber_email)
+
+if response.success?
+  puts response.body["subscribers"]
+end
+```
+
 > The response looks like this:
 
 ```json
@@ -423,6 +529,22 @@ None.
 curl -X DELETE "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+subscriber_email = "john@acme.com"
+response = client.delete_subscriber(subscriber_email)
+
+if response.success?
+  # ...
+end
 ```
 
 > Responds with `204 No Content` if successful.

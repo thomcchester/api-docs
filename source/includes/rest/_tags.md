@@ -10,6 +10,21 @@ curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/tags" \
   -u YOUR_API_KEY:
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+response = client.tags
+
+if response.success?
+  puts response.body["tags"]
+end
+```
+
 > The response looks like this:
 
 ```json
@@ -72,6 +87,24 @@ curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/tags" \
   EOF
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+subscriber_email = "john@acme.com"
+tag = "Customer"
+
+response = client.apply_tag(subscriber_email, tag)
+
+if response.success?
+  # ...
+end
+```
+
 > Responds with a `201 Created` and an empty JSON response:
 
 ```json
@@ -111,6 +144,24 @@ curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/tags" \
 curl -X DELETE "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/tags/TAG" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+subscriber_email = "john@acme.com"
+tag = "Customer"
+
+response = client.remove_tag(subscriber_email, tag)
+
+if response.success?
+  # ...
+end
 ```
 
 > Responds with a `204 No Content` if successful.

@@ -85,6 +85,21 @@ curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
   -u YOUR_API_KEY:
 ```
 
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+response = client.webhooks
+
+if response.success?
+  puts response.body["webhooks"]
+end
+```
+
 > The response looks like this:
 
 ```json
@@ -111,6 +126,22 @@ None.
 curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/webhooks/WEBHOOK_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+webhook_id = 999999
+response = client.webhook(webhook_id)
+
+if response.success?
+  puts response.body["webhooks"]
+end
 ```
 
 > The response looks like this:
@@ -150,6 +181,28 @@ curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
     }]
   }
   EOF
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+pot_url = "https://www.mylistener.com/receieve"
+include_received_email = false
+events = [
+  "subscriber.created",
+  "subscriber.subscribed_to_campaign"
+]
+
+response = client.create_webhook(post_url, include_received_email, events)
+
+if response.success?
+  puts response.body["webhooks"]
+end
 ```
 
 > Responds with a `201 Created` like this:
@@ -212,6 +265,22 @@ curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
 curl -X DELETE "https://api.drip.com/v2/YOUR_ACCOUNT_ID/webhooks/WEBHOOK_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
+```
+
+```ruby
+require 'drip'
+
+client = Drip::Client.new do |c|
+  c.api_key = "YOUR API KEY"
+  c.account_id = "YOUR_ACCOUNT_ID"
+end
+
+webhook_id = 999999
+response = client.delete_webhook(webhook_id)
+
+if response.success?
+  # ...
+end
 ```
 
 > Responds with a `204 No Content` if successful.
