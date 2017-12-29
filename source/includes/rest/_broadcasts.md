@@ -90,7 +90,7 @@
     </tr>
     <tr>
       <td><code>subject</code></td>
-      <td>The url designated for retrieving the broadcast record via the REST API.</td>
+      <td>The broadcast email's subject.</td>
     </tr>
     <tr>
       <td><code>html_body</code></td>

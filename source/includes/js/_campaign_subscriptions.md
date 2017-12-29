@@ -5,7 +5,21 @@
 > Example request
 
 ```javascript
-_dcq.push(["subscribe", { campaign_id: "9999999", fields: { email: "john@acme.com" }}]);
+_dcq.push(
+  [
+    "subscribe",
+    {
+      campaign_id: "9999999",
+      fields: {
+        email: "john@acme.com"
+      },
+      success: function(response) {
+        // Call a method with the response object
+        // Success callback is optional
+      }
+    }
+  ]
+);
 ```
 
 This method will add a subscriber directly to campaign. If you would like to add a subscriber to your account without subscribing them to a campaign, use an <a href="#identifying-visitors">identify call</a> instead.
@@ -48,7 +62,15 @@ This method will add a subscriber directly to campaign. If you would like to add
 > Example request
 
 ```javascript
-_dcq.push(["unsubscribe", { campaign_id: "9999999", email: "john@acme.com" }]);
+_dcq.push(
+  [
+    "unsubscribe",
+    {
+      campaign_id: "9999999",
+      email: "john@acme.com"
+    }
+  ]
+);
 ```
 
 Use this method to unsubscribe a subscriber from one or all of your campaigns.

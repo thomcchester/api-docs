@@ -209,6 +209,7 @@ end
 const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
 const idOrEmail = "someone@example.com";
 const payload = {
+  amount: 4900,
   properties: {
     "address": "123 Anywhere St"
   },
