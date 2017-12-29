@@ -96,7 +96,7 @@
     </tr>
     <tr>
       <td><code>days_between_popup_after_close</code></td>
-      <td>A delays in days between each appearance of the form widget after a visitor closes the form.</td>
+      <td>A delay in days between each appearance of the form widget after a visitor closes the form.</td>
     </tr>
     <tr>
       <td><code>orientation</code></td>

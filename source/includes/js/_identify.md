@@ -32,7 +32,7 @@ The following are treated as special properties. All other data passed in will b
   <tbody>
     <tr>
       <td><code>email</code></td>
-      <td>Optional. The subscriber's email address.</td>
+      <td>Required. The subscriber's email address.</td>
     </tr>
     <tr>
       <td><code>new_email</code></td>

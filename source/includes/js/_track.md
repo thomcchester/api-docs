@@ -5,7 +5,12 @@
 > Example track request
 
 ```javascript
-_dcq.push(["track", "Signed up for a trial", { value: 2000 }]);
+_dcq.push(
+  [
+    "track", "Signed up for a trial",
+    { value: 2000 }
+  ]
+);
 ```
 
 The <code>track</code> method is appropriate when you cannot trigger conversions by URL or you simply wish to record an particular action that the user has taken. The second argument is the name of the <code>action</code> to be recorded. If the <code>action</code> matches the name of a goal, then we will trigger a conversion.
@@ -32,11 +37,11 @@ The following are treated as special properties. All other data passed in will b
     </tr>
     <tr>
       <td><code>success</code></td>
-      <td>Optional. A unique identifier for the user in your database, such as a primary key.</td>
+      <td>Optional. A callback function that is executed upon successful completion of the request.</td>
     </tr>
     <tr>
       <td><code>failure</code></td>
-      <td>Optional. An Array of tags to apply.</td>
+      <td>Optional. A callback function that is executed if the request fails.</td>
     </tr>
   </tbody>
 </table>

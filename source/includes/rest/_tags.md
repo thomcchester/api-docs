@@ -62,15 +62,11 @@ client.listAllTags()
   <tbody>
     <tr>
       <td><code>email</code></td>
-      <td>The currently authenticated user's email address.</td>
+      <td>The subscriber's email address.</td>
     </tr>
     <tr>
-      <td><code>name</code></td>
-      <td>The currently authenticated user's name.</td>
-    </tr>
-    <tr>
-      <td><code>time_zone</code></td>
-      <td>The currently authenticated user's time zone.</td>
+      <td><code>tag</code></td>
+      <td>The String tag to apply. E.g. "Customer".</td>
     </tr>
   </tbody>
 </table>
