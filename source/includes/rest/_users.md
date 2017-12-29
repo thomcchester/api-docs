@@ -20,6 +20,20 @@ curl "https://api.drip.com/v2/user" \
   -u YOUR_API_KEY:
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+
+client.fetchUser()
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > The response looks like this:
 
 ```json

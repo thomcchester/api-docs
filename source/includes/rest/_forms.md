@@ -182,6 +182,20 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+
+client.listForms()
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > The response looks like this:
 
 ```json
@@ -224,6 +238,21 @@ response = client.form(form_id)
 if response.success?
   puts response.body["forms"]
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const formId = 9998888;
+
+client.fetchForm(formId)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > The response looks like this:

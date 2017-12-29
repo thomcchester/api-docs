@@ -203,6 +203,40 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const idOrEmail = "someone@example.com";
+const payload = {
+  properties: {
+    "address": "123 Anywhere St"
+  },
+  items: [
+    {
+      id: "8888888",
+      product_id: "765432",
+      sku: "4444",
+      amount: 4900,
+      name: "Canoe",
+      quantity: 1,
+      properties: {
+        color: "black"
+      }
+    }
+  ],
+  occurred_at: "2013-06-21T10:31:58Z"
+}
+
+client.createPurchase(idOrEmail, payload)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > Responds with a `201 Created` and an empty JSON response:
 
 ```json
@@ -320,6 +354,22 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const idOrEmail = "someone@example.com";
+const options = { page: 1 };
+
+client.listPurchases(idOrEmail, options)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > The response looks like this:
 
 ```json
@@ -382,6 +432,22 @@ response = client.purchase(subscriber_email, id)
 if response.success?
   puts response.body["purchases"]
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const idOrEmail = "someone@example.com";
+const purchaseId = 1112222;
+
+client.fetchPurchase(idOrEmail, purchaseId)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > The response looks like this:

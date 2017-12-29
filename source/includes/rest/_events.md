@@ -43,6 +43,29 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const payload = {
+  events: [{
+    email: "john@acme.com",
+    action: "Logged in",
+    properties: {
+      affiliate_code: "XYZ"
+    }
+  }]
+};
+
+client.recordEvent(payload)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > Responds with a `204 No Content` if successful.
 
 If you need to create or update a collection of events at once, use the Batch API instead.
@@ -112,6 +135,21 @@ response = client.event_actions
 if response.success?
   puts response["event_actions"]
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const options = { per_page: 200 };
+
+client.listEventActions(options)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > The response looks like this:

@@ -25,6 +25,20 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+
+client.listAllTags()
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > The response looks like this:
 
 ```json
@@ -105,6 +119,26 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const payload = {
+  tags: [{
+    email: "john@acme.com",
+    tag: "Customer"
+  }]
+};
+
+client.tagSubscriber(payload)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > Responds with a `201 Created` and an empty JSON response:
 
 ```json
@@ -162,6 +196,22 @@ response = client.remove_tag(subscriber_email, tag)
 if response.success?
   # ...
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const email = "john@acme.com";
+const tag = "Customer";
+
+client.removeSubscriberTag(email, tag)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > Responds with a `204 No Content` if successful.

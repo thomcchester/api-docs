@@ -179,6 +179,29 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const payload = {
+  subscribers: [{
+    email: "john@acme.com",
+    time_zone: "America/Los_Angeles",
+    custom_fields: {
+      name: "John Doe"
+    }
+  }]
+};
+
+client.createUpdateSubscriber(payload)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > The response looks like this:
 
 ```json
@@ -283,6 +306,21 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const options = { status: "active", subscribed_before: "2017-01-01T00:00:00Z" };
+
+client.listSubscribers(options)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > The response looks like this:
 
 ```json
@@ -373,6 +411,21 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const idOrEmail = "someone@example.com";
+
+client.fetchSubscriber(idOrEmail)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > The response looks like this:
 
 ```json
@@ -434,6 +487,22 @@ response = client.unsubscribe(subscriber_email, options)
 if response.success?
   puts response.body["subscribers"]
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const idOrEmail = "someone@example.com";
+const campaignId = 9998888;
+
+client.unsubscribeFromCampaign(idOrEmail, campaignId)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > To remove a subscriber from a specific campaign:
@@ -503,6 +572,21 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const idOrEmail = "someone@example.com";
+
+client.unsubscribeFromAllMailings(idOrEmail)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > The response looks like this:
 
 ```json
@@ -545,6 +629,21 @@ response = client.delete_subscriber(subscriber_email)
 if response.success?
   # ...
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const idOrEmail = "someone@example.com";
+
+client.deleteSubscriber(idOrEmail)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > Responds with `204 No Content` if successful.

@@ -64,15 +64,26 @@ end
 // npm install drip-nodejs --save
 
 const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
-const payload = {};
+const batch = {
+  "batches": [{
+    "subscribers": [
+      {
+        "email": "john@acme.com",
+        "tags": "Dog Person"
+      },
+      {
+        "email": "jane@acme.com",
+        "tags": "Cat Person"
+      }
+      // Lots more subscribers...
+    ]
+  }]
+};
 
-client.updateBatchSubscribers(payload, accountId)
-  .then((response) => {
-    // Handle `response.body`
-  })
-  .catch((error) => {
-    // Handle errors
-  });
+client.updateBatchSubscribers(batch, (errors, responses, bodies) => {
+  // Do stuff
+  }
+);
 ```
 
 > Responds with a `201 Created` response and an empty JSON response if successful:
@@ -228,6 +239,34 @@ events = [
 ]
 
 response = client.track_events(events)
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const payload = {
+  batches: [{
+    events: [
+      {
+        email: "john@acme.com",
+        action: "Opened a door"
+      },
+      {
+        email: "joe@acme.com",
+        action: "Closed a door"
+      }
+    ]
+  }]
+};
+
+client.recordBatchEvents(payload)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > Responds with a `201 Created` response and an empty JSON response if successful:
