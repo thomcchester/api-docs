@@ -100,6 +100,20 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+
+client.listWebhooks()
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > The response looks like this:
 
 ```json
@@ -142,6 +156,21 @@ response = client.webhook(webhook_id)
 if response.success?
   puts response.body["webhooks"]
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const webhookId = 111222;
+
+client.fetchWebhook(webhookId)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > The response looks like this:
@@ -203,6 +232,29 @@ response = client.create_webhook(post_url, include_received_email, events)
 if response.success?
   puts response.body["webhooks"]
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const payload = {
+  webhooks: [{
+    post_url: "http://www.mysite.com/my-webhook-endpoint",
+    events: [
+      "subscriber.created",
+      "subscriber.subscribed_to_campaign"
+    ]
+  }]
+}
+
+client.createWebhook(payload)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > Responds with a `201 Created` like this:
@@ -281,6 +333,21 @@ response = client.delete_webhook(webhook_id)
 if response.success?
   # ...
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const webhookId = 111222;
+
+client.destroyWebhook(webhookId)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > Responds with a `204 No Content` if successful.

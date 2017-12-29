@@ -190,6 +190,21 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const options = { status: "active" };
+
+client.listCampaigns(options)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > The response looks like this:
 
 ```json
@@ -264,6 +279,21 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const campaignId = 9998888;
+
+client.fetchCampaign(campaignId)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > The response looks like this:
 
 ```json
@@ -312,6 +342,21 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const campaignId = 9998888;
+
+client.activateCampaign(campaignId)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > Responds with a `204 No Content` if successful. If the campaign cannot be activated, returns a `422 Unprocessable Entity`.
 
 ### HTTP Endpoint
@@ -348,6 +393,21 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const campaignId = 9998888;
+
+client.pauseCampaign(campaignId)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > Responds with a `204 No Content` if successful. If the campaign cannot be paused, returns a `422 Unprocessable Entity`.
 
 ### HTTP Endpoint
@@ -382,6 +442,21 @@ response = client.campaign_subscribers(campaign_id)
 if response.success?
   puts response.body["subscribers]
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const campaignId = 9998888;
+
+client.listAllSubscribesToCampaign(campaignId)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > The response looks like this:
@@ -485,6 +560,28 @@ response = client.subscribe(email, campaign_id, options)
 if response.success?
   # ...
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const campaignId = 9998888;
+const payload = {
+  email: "someone@example.com",
+  time_zone: "America/Los_Angeles",
+  custom_fields: {
+    name: "Jane Doe"
+  }
+}
+
+client.subscribeToCampaign(campaignId, payload)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > The response looks like this:

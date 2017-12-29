@@ -87,6 +87,21 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const options = { status: "active" };
+
+client.listAllWorkflows(options)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > The response looks like this:
 
 ```json
@@ -161,6 +176,21 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const workflowId = 222333;
+
+client.fetchWorkflow(workflowId)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > The response looks like this:
 
 ```json
@@ -205,6 +235,21 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const workflowId = 222333;
+
+client.activateWorkflow(workflowId)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > Responds with a `204 No Content` if successful.
 
 ### HTTP Endpoint
@@ -239,6 +284,21 @@ response = client.pause_workflow(workflow_id)
 if response.success?
   # ...
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const workflowId = 222333;
+
+client.pauseWorkflow(workflowId)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > Responds with a `204 No Content` if successful.
@@ -293,6 +353,28 @@ response = client.start_subscriber_workflow(workflow_id, options)
 if response.success?
   puts response.body["subscribers"]
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const workflowId = 222333;
+const payload = {
+  email: "john@acme.com",
+  time_zone: "America/Los_Angeles",
+  custom_fields: {
+    name: "John Doe"
+  }
+}
+
+client.startOnWorkflow(workflowId, payload)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > The response looks like this:
@@ -381,6 +463,22 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const workflowId = 222333;
+const idOrEmail = "someone@example.com"
+
+client.removeFromWorkflow(workflowId, idOrEmail)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > Responds with a `204 No Content` if successful.
 
 If the subscriber is not already on the workflow, nothing will happen.
@@ -417,6 +515,21 @@ response = client.workflow_triggers(workflow_id)
 if response.success?
   puts response.body["triggers"]
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const workflowId = 222333;
+
+client.listTriggers(workflowId)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > The response looks like this:
@@ -495,6 +608,28 @@ response = client.create_workflow_trigger(workflow_id, options)
 if response.success?
   puts response.body["triggers"]
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const workflowId = 222333;
+const payload = {
+  provider: "leadpages",
+  trigger_type: "submitted_landing_page",
+  properties: {
+    landing_page: "My Landing Page"
+  }
+}
+
+client.createTrigger(workflowId, payload)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > The response looks like this:
@@ -594,6 +729,29 @@ response = client.update_workflow_trigger(workflow_id, options)
 if response.success?
   puts response.body["triggers"]
 end
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const workflowId = 222333;
+const triggerId = "abc123";
+const payload = {
+  provider: "leadpages",
+  trigger_type: "submitted_landing_page",
+  properties: {
+    landing_page: "My Landing Page"
+  }
+}
+
+client.updateTrigger(workflowId, triggerId, payload)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > The response looks like this:

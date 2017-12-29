@@ -60,6 +60,32 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const batch = {
+  "batches": [{
+    "subscribers": [
+      {
+        "email": "john@acme.com",
+        "tags": "Dog Person"
+      },
+      {
+        "email": "jane@acme.com",
+        "tags": "Cat Person"
+      }
+      // Lots more subscribers...
+    ]
+  }]
+};
+
+client.updateBatchSubscribers(batch, (errors, responses, bodies) => {
+  // Do stuff
+  }
+);
+```
+
 > Responds with a `201 Created` response and an empty JSON response if successful:
 
 ```json
@@ -142,6 +168,32 @@ if response.success?
 end
 ```
 
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const payload = {
+  batches:
+  [
+    {
+      subscribers: [
+        {
+          email: 'someone@example.com'
+        }
+      ]
+    }
+  ]
+};
+
+client.unsubscribeBatchSubscribers(payload)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
+```
+
 > Responds with a `204 No Content` response if successful.
 
 ### HTTP Endpoint
@@ -213,6 +265,34 @@ events = [
 ]
 
 response = client.track_events(events)
+```
+
+```javascript
+// npm install drip-nodejs --save
+
+const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
+const payload = {
+  batches: [{
+    events: [
+      {
+        email: "john@acme.com",
+        action: "Opened a door"
+      },
+      {
+        email: "joe@acme.com",
+        action: "Closed a door"
+      }
+    ]
+  }]
+};
+
+client.recordBatchEvents(payload)
+  .then((response) => {
+    // Handle `response.body`
+  })
+  .catch((error) => {
+    // Handle errors
+  });
 ```
 
 > Responds with a `201 Created` response and an empty JSON response if successful:
