@@ -15,7 +15,7 @@
 > To fetch the current user:
 
 ```shell
-curl "https://api.drip.com/v2/user" \
+curl "https://api.getdrip.com/v2/user" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```

@@ -22,7 +22,7 @@
   "lead_score": 72,
   "lifetime_value": 10000,
   "created_at": "2013-06-21T10:31:58Z",
-  "href": "https://api.drip.com/v2/9999999/subscribers/12345",
+  "href": "https://api.getdrip.com/v2/9999999/subscribers/12345",
   "user_id": "12345",
   "base_lead_score": 30,
   "links": {
@@ -36,7 +36,7 @@
 ```json
 {
   "links": {
-    "subscribers.account": "https://api.drip.com/v2/accounts/{subscribers.account}"
+    "subscribers.account": "https://api.getdrip.com/v2/accounts/{subscribers.account}"
   }
 }
 ```
@@ -140,7 +140,7 @@
 > To create or update a subscriber:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -286,7 +286,7 @@ If you need to create or update a collection of subscribers at once, use our [ba
 > To list subscribers:
 
 ```shell
-curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers" \
+curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -389,7 +389,7 @@ client.listSubscribers(options)
 > To fetch a subscriber:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -449,7 +449,7 @@ None.
 > To remove a subscriber from all campaigns:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/remove" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/remove" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -508,7 +508,7 @@ client.unsubscribeFromCampaign(idOrEmail, campaignId)
 > To remove a subscriber from a specific campaign:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/remove?campaign_id=CAMPAIGN_ID" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/remove?campaign_id=CAMPAIGN_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -551,7 +551,7 @@ This endpoint was previously labeled `unsubscribe`.
 > To unsubscribe a subscriber from all mailings:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/unsubscribe_all" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL/unsubscribe_all" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -610,7 +610,7 @@ None.
 > To delete a subscriber:
 
 ```shell
-curl -X DELETE "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL" \
+curl -X DELETE "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/ID_OR_EMAIL" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```

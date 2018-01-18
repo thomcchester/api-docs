@@ -5,7 +5,7 @@
 ```json
 {
   "id": "77777",
-  "href": "https://api.drip.com/v2/9999999/webhooks/77777",
+  "href": "https://api.getdrip.com/v2/9999999/webhooks/77777",
   "post_url": "http://www.mysite.com/my-webhook-endpoint",
   "version": "1",
   "include_received_email": false,
@@ -25,7 +25,7 @@
 ```json
 {
   "links": {
-    "webhooks.account": "https://api.drip.com/v2/accounts/{webhooks.account}"
+    "webhooks.account": "https://api.getdrip.com/v2/accounts/{webhooks.account}"
   }
 }
 ```
@@ -80,7 +80,7 @@
 > To list all webhooks in an account:
 
 ```shell
-curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
+curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -137,7 +137,7 @@ None.
 > To fetch a specific webhook:
 
 ```shell
-curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/webhooks/WEBHOOK_ID" \
+curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/webhooks/WEBHOOK_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -196,7 +196,7 @@ None.
 > To create a webhook:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/webhooks" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -264,7 +264,7 @@ client.createWebhook(payload)
   "links": { ... },
   "webhooks": [{
     "id": "77777",
-    "href": "https://api.drip.com/v2/9999999/webhooks/77777",
+    "href": "https://api.getdrip.com/v2/9999999/webhooks/77777",
     "post_url": "http://www.example.com/api/v2/form",
     "version": "1",
     "include_received_email": false,
@@ -314,7 +314,7 @@ client.createWebhook(payload)
 > To destroy an existing webhook:
 
 ```shell
-curl -X DELETE "https://api.drip.com/v2/YOUR_ACCOUNT_ID/webhooks/WEBHOOK_ID" \
+curl -X DELETE "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/webhooks/WEBHOOK_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```

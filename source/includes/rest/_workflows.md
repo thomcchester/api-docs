@@ -5,7 +5,7 @@
 ```json
 {
   "id": "123456",
-  "href": "https://api.drip.com/v2/9999999/workflows/123456",
+  "href": "https://api.getdrip.com/v2/9999999/workflows/123456",
   "name": "Main Funnel",
   "status": "active",
   "created_at": "2016-07-01T10:00:00Z",
@@ -20,7 +20,7 @@
 ```json
 {
   "links": {
-    "workflows.account": "https://api.drip.com/v2/accounts/{workflows.account}"
+    "workflows.account": "https://api.getdrip.com/v2/accounts/{workflows.account}"
   }
 }
 ```
@@ -67,7 +67,7 @@
 > To list all workflows:
 
 ```shell
-curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows" \
+curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -155,7 +155,7 @@ client.listAllWorkflows(options)
 > To fetch a workflow:
 
 ```shell
-curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID" \
+curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -214,7 +214,7 @@ None.
 > To activate a workflow:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/activate" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/activate" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -265,7 +265,7 @@ None.
 > To pause a workflow:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/pause" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/pause" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -316,7 +316,7 @@ None.
 > To start a someone on a workflow:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/subscribers" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/subscribers" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -440,7 +440,7 @@ If the workflow is not active, the subscriber will not be added to the workflow.
 > To remove someone from a workflow:
 
 ```shell
-curl -X DELETE "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/subscribers/ID_OR_EMAIL" \
+curl -X DELETE "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/subscribers/ID_OR_EMAIL" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -496,7 +496,7 @@ None.
 > To list all triggers on a workflow:
 
 ```shell
-curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/triggers" \
+curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/triggers" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -569,7 +569,7 @@ None.
 > To create a workflow trigger:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/triggers" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/triggers" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -690,7 +690,7 @@ client.createTrigger(workflowId, payload)
 > To update a workflow trigger:
 
 ```shell
-curl -X PUT "https://api.drip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/triggers/TRIGGER_ID" \
+curl -X PUT "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/triggers/TRIGGER_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
