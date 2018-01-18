@@ -28,7 +28,7 @@
   "email_click_rate": 0.68232,
   "created_at": "2013-06-21T10:31:58Z",
   "updated_at": "2013-06-21T10:31:58Z",
-  "href": "https://api.drip.com/v2/9999999/campaigns/123456",
+  "href": "https://api.getdrip.com/v2/9999999/campaigns/123456",
   "links": {
     "account": "9999999",
     "forms": ["888"]
@@ -41,9 +41,9 @@
 ```json
 {
   "links": {
-    "campaigns.account": "https://api.drip.com/v2/accounts/{campaigns.account}",
-    "campaigns.form": "https://api.drip.com/v2/{campaigns.account}/forms/{campaigns.forms}",
-    "campaigns.subscribers": "https://api.drip.com/v2/{campaigns.account}/campaigns/{campaigns.id}/subscribers"
+    "campaigns.account": "https://api.getdrip.com/v2/accounts/{campaigns.account}",
+    "campaigns.form": "https://api.getdrip.com/v2/{campaigns.account}/forms/{campaigns.forms}",
+    "campaigns.subscribers": "https://api.getdrip.com/v2/{campaigns.account}/campaigns/{campaigns.id}/subscribers"
   }
 }
 ```
@@ -170,7 +170,7 @@
 > To list all campaigns:
 
 ```shell
-curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/campaigns" \
+curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/campaigns" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -258,7 +258,7 @@ client.listCampaigns(options)
 > To fetch a specific campaign:
 
 ```shell
-curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID" \
+curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -321,7 +321,7 @@ None.
 > To activate a campaign:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/activate" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/activate" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -372,7 +372,7 @@ None.
 > To pause a campaign:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/pause" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/pause" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -423,7 +423,7 @@ None.
 > To list subscribers on a campaign:
 
 ```shell
-curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/subscribers" \
+curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/subscribers" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -519,7 +519,7 @@ client.listAllSubscribesToCampaign(campaignId)
 > To start a subscriber on a campaign:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/subscribers" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/subscribers" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -657,7 +657,7 @@ client.subscribeToCampaign(campaignId, payload)
 > To list campaign subscriptions for a subscriber:
 
 ```shell
-curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/subscribers/SUBSCRIBER_ID/campaign_subscriptions" \
+curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/SUBSCRIBER_ID/campaign_subscriptions" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -700,8 +700,8 @@ client.subscriberCampaignSubscriptions(subscriberId)
 # The campaign subscriptions property is an array of campaign subscription objects.
 {
   "links": {
-    "campaign_subscriptions.account": "https://api.drip.com/v2/accounts/{campaign_subscriptions.account}",
-    "campaign_subscriptions.subscriber": "https://api.drip.com/v2/subscribers/{campaign_subscriptions.subscriber}"
+    "campaign_subscriptions.account": "https://api.getdrip.com/v2/accounts/{campaign_subscriptions.account}",
+    "campaign_subscriptions.subscriber": "https://api.getdrip.com/v2/subscribers/{campaign_subscriptions.subscriber}"
   },
   "meta": {
     "page": 1,

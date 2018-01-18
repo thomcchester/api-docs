@@ -5,7 +5,7 @@
 > To create or update a subscriber:
 
 ```shell
-curl -X POST "https://api.drip.com/v2/YOUR_ACCOUNT_ID/events" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/events" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
@@ -117,7 +117,7 @@ If you need to create or update a collection of events at once, use the Batch AP
 > To list custom event actions:
 
 ```shell
-curl "https://api.drip.com/v2/YOUR_ACCOUNT_ID/event_actions" \
+curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/event_actions" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
