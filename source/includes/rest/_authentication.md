@@ -82,9 +82,9 @@ You must replace <code>YOUR_API_KEY</code> / <code>YOUR_ACCESS_TOKEN</code> with
 ```
 
 1. First and foremost remember to register your app with us as outlined above.
-2. Once you have registered your app, it will then need to request authorization by redirecting your user to the following url: <code>https://www.getdrip.com/oauth/authorize?response_type=code&client_id=&lt;your_client_id&gt;&redirect_uri=&lt;your_redirect_uri&gt;</code>
+2. Once you have registered your app, it will then need to request authorization by redirecting your user to the following url: <br><br><code>https://www.getdrip.com/oauth/authorize?response_type=code&client_id=&lt;your_client_id&gt;&redirect_uri=&lt;your_redirect_uri&gt;</code><br><br>
 3. We will then authenticate their Drip account and ask if it's ok to give access to your app.
 4. The user will then be redirected back to your app with a verification code that will expire in 10 minutes.
-5. Your app will then need to make a request to trade that verification code for an access token: <code>POST https://www.getdrip.com/oauth/token?response_type=token&client_id=&lt;your_client_id&gt;&client_secret=&lt;your_client_secret&gt;&code=&lt;your_verification_code&gt;&redirect_uri=&lt;your_redirect_uri&gt;&grant_type=authorization_code</code>
-6. We will then authenticate your app and issue you an access token:
-7. You can now use that access token in the header of your API requests as follows: <code>Authorization: Bearer 822bbf7cd12243df...</code>
+5. Your app will then need to make a request to trade that verification code for an access token: <br><br><code>POST https://www.getdrip.com/oauth/token?response_type=token&client_id=&lt;your_client_id&gt;&client_secret=&lt;your_client_secret&gt;&code=&lt;your_verification_code&gt;&redirect_uri=&lt;your_redirect_uri&gt;&grant_type=authorization_code</code><br><br>
+6. We will then authenticate your app and issue you an access token as shown on the right.
+7. You can now use that access token in the header of your API requests as follows: <br><br><code>Authorization: Bearer 822bbf7cd12243df...</code>
