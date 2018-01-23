@@ -61,3 +61,30 @@ and full [OAuth 2](http://oauth.net/2/) authentication (for public integrations)
 <aside class="notice">
 You must replace <code>YOUR_API_KEY</code> / <code>YOUR_ACCESS_TOKEN</code> with your actual token.
 </aside>
+
+## OAuth
+
+<strong>For public integrations with Drip, you must use OAuth based authentication. Here's a quick overview of how to get going.</strong>
+
+1. Get your favorite <a href="http://oauth.net/code/" target="_blank">OAuth Library</a>
+2. Register your <a href="https://www.getdrip.com/user/applications" target="_blank">application with us</a>. We will then supply you with an client id and client secret. Please be aware that you must also enter a valid callback url before you will be able to activate your application.
+3. Configure your OAuth client with the credentials supplied to you when you created your application. Request authorization at: <code>https://www.getdrip.com/oauth/authorize</code>. You should only have to do this once, as tokens do not expire.
+4. Activate your application and you're on your way!
+
+<strong>If you're not going to use a library and will be rolling your own OAuth 2 client, here's the long form of how you can get going.</strong>
+
+```json
+{
+  "access_token": "822bbf7cd12243df...",
+  "token_type": "bearer",
+  "scope": "public"
+}
+```
+
+1. First and foremost remember to register your app with us as outlined above.
+2. Once you have registered your app, it will then need to request authorization by redirecting your user to the following url: <code>https://www.getdrip.com/oauth/authorize?response_type=code&client_id=&lt;your_client_id&gt;&redirect_uri=&lt;your_redirect_uri&gt;</code>
+3. We will then authenticate their Drip account and ask if it's ok to give access to your app.
+4. The user will then be redirected back to your app with a verification code that will expire in 10 minutes.
+5. Your app will then need to make a request to trade that verification code for an access token: <code>POST https://www.getdrip.com/oauth/token?response_type=token&client_id=&lt;your_client_id&gt;&client_secret=&lt;your_client_secret&gt;&code=&lt;your_verification_code&gt;&redirect_uri=&lt;your_redirect_uri&gt;&grant_type=authorization_code</code>
+6. We will then authenticate your app and issue you an access token:
+7. You can now use that access token in the header of your API requests as follows: <code>Authorization: Bearer 822bbf7cd12243df...</code>
