@@ -1,6 +1,6 @@
 # Authentication
 
-> For private integrations, you may use your personal API Token (found [here](https://www.getdrip.com/user/edit)) via the `api_key` setting:
+> For private integrations, you will need to use your personal API Token (found [here](https://www.getdrip.com/user/edit)) via the `api_key` setting and must be Base64 encoded before use:
 
 ```ruby
 require 'drip-ruby'
@@ -25,10 +25,10 @@ const client = require('drip-nodejs')(
 ```shell
 curl "api_endpoint_here" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
-  -u YOUR_API_KEY:
+  -H 'Authorization: Basic (YOUR_API_KEY)'
 ```
 
-> For public integrations, pass in the user's OAuth token via the `access_token` setting or pass the `Bearer` token type when using the JS wrapper:
+> For public integrations, for example, when allowing your customers within your application to authorize access directly to their Drip accounts, pass in the user's OAuth token via the `access_token` setting or pass the `Bearer` token type when using the JS wrapper:
 
 ```ruby
 client = Drip::Client.new do |c|
