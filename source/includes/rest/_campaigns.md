@@ -27,7 +27,6 @@
   "email_open_rate": 0.15531,
   "email_click_rate": 0.68232,
   "created_at": "2013-06-21T10:31:58Z",
-  "updated_at": "2013-06-21T10:31:58Z",
   "href": "https://api.getdrip.com/v2/9999999/campaigns/123456",
   "links": {
     "account": "9999999",
