@@ -96,7 +96,7 @@
 > To list all accounts the authenticated user has access to:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/accounts" \
+curl "https://api.getdrip.com/v2/accounts" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
@@ -153,7 +153,7 @@ None.
 > To fetch a specific account:
 
 ```shell
-curl "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/accounts/ACCOUNT_ID" \
+curl "https://api.getdrip.com/v2/accounts/ACCOUNT_ID" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY:
 ```
