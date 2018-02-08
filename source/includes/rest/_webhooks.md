@@ -304,7 +304,7 @@ client.createWebhook(payload)
     </tr>
     <tr>
       <td><code>events</code></td>
-      <td>Optional. An Array specifiying which events we should send notifications for. Eligible events can be found in the <a href="/docs/webhooks">webhooks documentation</a>. By default, we will send notifications for all events except <code>subscrber.received_email</code>.</td>
+      <td>Optional. An Array specifiying which events we should send notifications for. Eligible events can be found in the <a href="#webhook-events">webhooks documentation</a>. By default, we will send notifications for all events except <code>subscrber.received_email</code>.</td>
     </tr>
   </tbody>
 </table>
