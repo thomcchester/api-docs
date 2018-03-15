@@ -371,7 +371,7 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/orders" \
   -d @- << EOF
   {
     "orders": [{
-      "email": "john@acme.com"
+      "email": "john@acme.com",
       "provider": "shopify",
       "upstream_id": "abcdef",
       "identifier": "Order_123456",
