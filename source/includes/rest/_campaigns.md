@@ -99,7 +99,7 @@
     </tr>
     <tr>
       <td><code>double_optin</code></td>
-      <td>Returns true if doubl opt-in is enabled for the campaign.</td>
+      <td>Returns true if double opt-in is enabled for the campaign.</td>
     </tr>
     <tr>
       <td><code>send_to_confirmation_page</code></td>
