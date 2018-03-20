@@ -332,7 +332,7 @@ request and the time your data appears in user interface.
 > To create or update a batch of orders:
 
 ```shell
-curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/batches" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/orders/batches" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
