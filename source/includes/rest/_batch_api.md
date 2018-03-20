@@ -508,7 +508,7 @@ request and the time your data appears in user interface.
   <tbody>
     <tr>
       <td><code>orders</code></td>
-      <td>Required. An Array with between 1 and 1000 objects containing order data.</td>
+      <td>Required. An Array with between 1 and 1000 objects containing <a href="#orders">order data</a>.</td>
     </tr>
   </tbody>
 </table>
