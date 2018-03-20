@@ -800,3 +800,43 @@ will be automatically decremented by the total amount of the refund.
     </tr>
   </tbody>
 </table>
+
+## Order events
+
+Drip automatically records a number of events in the life cycle of an order. You can find
+triggers for these events by selecting <code>Drip Order API</code> from the provider dropdown in your Drip automation.
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Placed an order</code></td>
+      <td>This event is fired when an order is created.</td>
+    </tr>
+    <tr>
+      <td><code>Updated an order</code></td>
+      <td>This event is fired when an existing order is updated.</td>
+    </tr>
+    <tr>
+      <td><code>Paid an order</code></td>
+      <td>This event is fired when the <code>financial_state</code> on an order is set to <code>paid</code>.</td>
+    </tr>
+    <tr>
+      <td><code>Fulfilled an order</code></td>
+      <td>This event is fired when the <code>fulfillment_state</code> on an order is set to <code>fulfilled</code>.</td>
+    </tr>
+    <tr>
+      <td><code>Canceled an order</code></td>
+      <td>This event is fired when the <code>cancelled_at</code> time on an order is set.</td>
+    </tr>
+    <tr>
+      <td><code>Refunded an order</code></td>
+      <td>This event is fired when a refund is created for an order.</td>
+    </tr>
+  </tbody>
+</table>
