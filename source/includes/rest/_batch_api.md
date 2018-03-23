@@ -487,7 +487,7 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/orders/batches" \
 {}
 ```
 
-We recommend using this API endpoint when you need to create a collection of orders at once that will likely exceed the regular rate limit of 3,600 requests per hour.
+We recommend using this API endpoint when you need to create a collection of orders and subscribers at once that will likely exceed the regular rate limit of 3,600 requests per hour.
 
 Note: Since our batch APIs process requests in the background, there may be a delay between the time you submit your
 request and the time your data appears in the user interface.

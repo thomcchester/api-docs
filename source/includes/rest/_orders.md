@@ -451,6 +451,8 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/orders" \
 When an order is created, the subscriber's `lifetime_value` attribute
 will be automatically incremented by the total amount of the order.
 
+**Note**: A matching subscriber record must already be present in Drip before an order can be created.
+
 ### HTTP Endpoint
 
 `POST /:account_id/orders`
