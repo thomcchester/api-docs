@@ -387,7 +387,6 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/orders" \
       },
       "occurred_at": "2013-06-21T10:31:58Z",
       "closed_at": "2013-06-21T10:35:58Z",
-      "cancelled_at": null,
       "financial_state": "paid",
       "fulfillment_state": "fulfilled",
       "billing_address": {
@@ -419,24 +418,25 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/orders" \
         "email": "ship@shipping.com"
       },
       "items": [{
-        "id": "8888888",
-        "product_id": "765432",
-        "sku": "4444",
-        "amount": 4900,
-        "name": "Canoe",
-        "quantity": 1,
-        "upstream_id": "hijkl",
-        "upstream_product_id": "opqrs",
-        "upstream_product_variant_id": "zyxwv",
-        "price": 4900,
-        "tax": 100,
-        "fees": 0,
-        "discount": 100,
-        "taxable": true,
-        "properties": {
-          "color": "black"
-        }
-      }]
+          "id": "8888888",
+          "product_id": "765432",
+          "sku": "4444",
+          "amount": 4900,
+          "name": "Canoe",
+          "quantity": 1,
+          "upstream_id": "hijkl",
+          "upstream_product_id": "opqrs",
+          "upstream_product_variant_id": "zyxwv",
+          "price": 4900,
+          "tax": 100,
+          "fees": 0,
+          "discount": 100,
+          "taxable": true,
+          "properties": {
+            "color": "black"
+          }
+        }]
+    }]
   }
   EOF
 ```
