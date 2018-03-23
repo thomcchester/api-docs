@@ -745,12 +745,14 @@ will be automatically incremented by the total amount of the order.
 > To create or update a refund for an order:
 
 ```shell
-curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/ORDER_ID/refunds" \
+curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/refunds" \
   -H 'User-Agent: Your App Name (www.yourapp.com)' \
   -u YOUR_API_KEY: \
   -d @- << EOF
   {
     "refunds": [{
+        "provider": "shopify",
+        "order_upstream_id": "abcdef"
         "upstream_id": "tuvwx",
         "amount": 2000,
         "note": "Incorrect size",
@@ -772,7 +774,7 @@ will be automatically decremented by the total amount of the refund.
 
 ### HTTP Endpoint
 
-`POST /:account_id/orders/:order_id/refunds`
+`POST /:account_id/refunds`
 
 ### Arguments
 
@@ -784,6 +786,14 @@ will be automatically decremented by the total amount of the refund.
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><code>provider</code></td>
+      <td>Required. The provider for the Order being refunded.</td>
+    </tr>
+    <tr>
+      <td><code>order_upstream_id</code></td>
+      <td>Required. The <code>upstream_id</code> for the Order being refunded.</td>
+    </tr>
     <tr>
       <td><code>amount</code></td>
       <td>Required. The amount of the refund.</td>
