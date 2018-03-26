@@ -757,7 +757,7 @@ curl -X POST "https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/refunds" \
   {
     "refunds": [{
         "provider": "shopify",
-        "order_upstream_id": "abcdef"
+        "order_upstream_id": "abcdef",
         "upstream_id": "tuvwx",
         "amount": 2000,
         "note": "Incorrect size",
