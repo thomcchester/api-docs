@@ -484,7 +484,7 @@ To update an existing order, include the <code>provider</code> and <code>upstrea
     </tr>
     <tr>
       <td><code>provider</code></td>
-      <td>Optional. Requird for updates. The identifier for the provider from which the order data was received in lower snake cased form. For example, <code>shopify</code> or <code>my_store</code>. Used to identify the order for updates.</td>
+      <td>Optional. Required for updates. The identifier for the provider from which the order data was received in lower snake cased form. For example, <code>shopify</code> or <code>my_store</code>. Used to identify the order for updates.</td>
     </tr>
     <tr>
       <td><code>tax</code></td>
