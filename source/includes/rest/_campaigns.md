@@ -567,11 +567,13 @@ end
 const client = require('drip-nodejs')({ token: YOUR_API_KEY, accountId: YOUR_ACCOUNT_ID });
 const campaignId = 9998888;
 const payload = {
-  email: "someone@example.com",
-  time_zone: "America/Los_Angeles",
-  custom_fields: {
-    name: "Jane Doe"
-  }
+  subscribers: [{
+    email: "someone@example.com",
+    time_zone: "Asia/Kuala_Lumpur",
+    custom_fields: {
+      name: "Jane Doe"
+    }
+  }]
 }
 
 client.subscribeToCampaign(campaignId, payload)
