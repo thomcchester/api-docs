@@ -751,6 +751,7 @@ Content-Type: application/json
 <p>To create or update a batch of subscribers:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/batches"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: applicaton/json'</span> <span class="se">\</span>
   -H <span class="s1">'User-Agent: Your App Name (www.yourapp.com)'</span> <span class="se">\</span>
   -u YOUR_API_KEY: <span class="se">\</span>
   -d @- <span class="sh">&lt;&lt; EOF
@@ -855,6 +856,7 @@ request and the time your data appears in the user interface.</p>
 <p>To globally unsubscribe a batch of subscribers:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/unsubscribes/batches"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: applicaton/json'</span> <span class="se">\</span>
   -H <span class="s1">'User-Agent: Your App Name (www.yourapp.com)'</span> <span class="se">\</span>
   -u YOUR_API_KEY: <span class="se">\</span>
   -d @- <span class="sh">&lt;&lt; EOF
@@ -944,6 +946,7 @@ request and the time your data appears in the user interface.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers/batches"</span> <span class="se">\</span>
   -H <span class="s1">'User-Agent: Your App Name (www.yourapp.com)'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: applicaton/json'</span> <span class="se">\</span>
   -u YOUR_API_KEY: <span class="se">\</span>
   -d @- <span class="sh">&lt;&lt; EOF
   {
@@ -1040,6 +1043,7 @@ request and the time your data appears in the user interface.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/orders/batches"</span> <span class="se">\</span>
   -H <span class="s1">'User-Agent: Your App Name (www.yourapp.com)'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: applicaton/json'</span> <span class="se">\</span>
   -u YOUR_API_KEY: <span class="se">\</span>
   -d @- <span class="sh">&lt;&lt; EOF
   {
@@ -2199,6 +2203,7 @@ end
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/campaigns/CAMPAIGN_ID/subscribers"</span> <span class="se">\</span>
   -H <span class="s1">'User-Agent: Your App Name (www.yourapp.com)'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: applicaton/json'</span> <span class="se">\</span>
   -u YOUR_API_KEY: <span class="se">\</span>
   -d @- <span class="sh">&lt;&lt; EOF
   {
@@ -2637,6 +2642,7 @@ end
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/events"</span> <span class="se">\</span>
   -H <span class="s1">'User-Agent: Your App Name (www.yourapp.com)'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: applicaton/json'</span> <span class="se">\</span>
   -u YOUR_API_KEY: <span class="se">\</span>
   -d @- <span class="sh">&lt;&lt; EOF
   {
@@ -3410,6 +3416,7 @@ end
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/orders"</span> <span class="se">\</span>
   -H <span class="s1">'User-Agent: Your App Name (www.yourapp.com)'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: applicaton/json'</span> <span class="se">\</span>
   -u YOUR_API_KEY: <span class="se">\</span>
   -d @- <span class="sh">&lt;&lt; EOF
   {
@@ -3785,6 +3792,7 @@ will be automatically incremented by the total amount of the order.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/refunds"</span> <span class="se">\</span>
   -H <span class="s1">'User-Agent: Your App Name (www.yourapp.com)'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: applicaton/json'</span> <span class="se">\</span>
   -u YOUR_API_KEY: <span class="se">\</span>
   -d @- <span class="sh">&lt;&lt; EOF
   {
@@ -4021,6 +4029,7 @@ triggers for these events by selecting <code>Drip Order API</code> from the prov
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/subscribers"</span> <span class="se">\</span>
   -H <span class="s1">'User-Agent: Your App Name (www.yourapp.com)'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: applicaton/json'</span> <span class="se">\</span>
   -u YOUR_API_KEY: <span class="se">\</span>
   -d @- <span class="sh">&lt;&lt; EOF
   {
@@ -4524,6 +4533,7 @@ triggers for these events by selecting <code>Drip Order API</code> from the prov
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/tags"</span> <span class="se">\</span>
   -H <span class="s1">'User-Agent: Your App Name (www.yourapp.com)'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: applicaton/json'</span> <span class="se">\</span>
   -u YOUR_API_KEY: <span class="se">\</span>
   -d @- <span class="sh">&lt;&lt; EOF
   {
@@ -4941,6 +4951,7 @@ triggers for these events by selecting <code>Drip Order API</code> from the prov
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/subscribers"</span> <span class="se">\</span>
   -H <span class="s1">'User-Agent: Your App Name (www.yourapp.com)'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: applicaton/json'</span> <span class="se">\</span>
   -u YOUR_API_KEY: <span class="se">\</span>
   -d @- <span class="sh">&lt;&lt; EOF
   {
@@ -5155,6 +5166,7 @@ triggers for these events by selecting <code>Drip Order API</code> from the prov
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/workflows/WORKFLOW_ID/triggers"</span> <span class="se">\</span>
   -H <span class="s1">'User-Agent: Your App Name (www.yourapp.com)'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: applicaton/json'</span> <span class="se">\</span>
   -u YOUR_API_KEY: <span class="se">\</span>
   -d @- <span class="sh">&lt;&lt; EOF
   {
@@ -5531,6 +5543,7 @@ triggers for these events by selecting <code>Drip Order API</code> from the prov
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.getdrip.com/v2/YOUR_ACCOUNT_ID/webhooks"</span> <span class="se">\</span>
   -H <span class="s1">'User-Agent: Your App Name (www.yourapp.com)'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: applicaton/json'</span> <span class="se">\</span>
   -u YOUR_API_KEY: <span class="se">\</span>
   -d @- <span class="sh">&lt;&lt; EOF
   {
